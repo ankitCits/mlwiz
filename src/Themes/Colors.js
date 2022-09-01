@@ -1,0 +1,26 @@
+const Colors = {
+    PRIMARY: '#322017',
+    BLACK: '#000000',
+    WHITE: '#FFFFFF',
+    GREY1: '#333333',
+    GREY2: '#4F4F4F',
+    GREY3: '#828282',
+    GREY4: '#BDBDBD',
+    GREY5: '#E0E0E0',
+    GREY6: '#F2F2F2',
+    ORANGE: '#F2994A',
+    RED: '#EB5757',
+    ERROR_BG: '#f8d7da',
+    ERROR_TEXT: '#721c24',
+    ERROR_BORDER: '#f5c6cb',
+    BLUE: '#2F80ED',
+    GREEN: '#27AE60',
+    BLUE_LIGHT: '#E6F0FF',
+    GREEN_LIGHT: '#E5FFF0',
+    RED_LIGHT: '#FFE5E5',
+    BROWN_LIGHT: '#4D1D05',
+    GREEN_LIGHT: '#1F6610',
+    GREEN_DARK: '#334D32',
+};
+
+export default Colors;
