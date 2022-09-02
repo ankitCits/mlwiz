@@ -61,6 +61,7 @@ const Dashboard = () => {
             activeColor={Colors.WHITE}
             indicatorStyle={styles.indicatorStyle}
             style={styles.tabContainer}
+            labelStyle={styles.tabLabel}
         />
         );
     };

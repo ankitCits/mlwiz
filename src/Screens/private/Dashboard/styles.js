@@ -9,8 +9,11 @@ const styles = StyleSheet.create({
         borderColor: Colors.WHITE
     },
     tabContainer: {
-        height: 72,
+        height: 70,
         backgroundColor: Colors.PRIMARY
+    },
+    tabLabel:{
+        margin:0,
     }
 });
 
