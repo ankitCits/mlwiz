@@ -1,5 +1,9 @@
 const Colors = {
     PRIMARY: '#0A5DD2',
+    SECONDARY:'#F3F6FB',
+    DARK_GREY:'#838995',
+    GREY:'#AAABAF',
+    SIGN_IN_TEXT:'#6F7780',
     BLACK: '#000000',
     WHITE: '#FFFFFF',
     GREY1: '#333333',
