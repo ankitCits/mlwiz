@@ -18,8 +18,6 @@ const Navigation = () => {
         }, 1000);
     }, [])
 
-
-
     return (
         <NavigationContainer ref={navigationRef}>
             {
@@ -34,7 +32,7 @@ const Navigation = () => {
                     </View>
                     :
                     // userToken != null ? <PublicRoute /> : <PrivateRoute />
-                    <PublicRoute />
+                    <PrivateRoute />
             }
         </NavigationContainer>
     );

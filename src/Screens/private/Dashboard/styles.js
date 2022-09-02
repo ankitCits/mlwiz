@@ -26,6 +26,8 @@ const styles = StyleSheet.create({
     tabLabel: {
         // width: '100%',
         // alignSelf: 'center',
+        // alignItems: 'center',
+        // alignContent: 'center'
         // padding: 0,
         // margin: 0,
         // backgroundColor: 'red'

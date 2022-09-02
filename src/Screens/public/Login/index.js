@@ -24,7 +24,7 @@ const Login = () => {
         setIsLoading(true);
         if (formValues.email.trim() == '') {
             ToastAndroid.showWithGravity(
-                'User name mandatory',
+                'Email address mandatory',
                 ToastAndroid.LONG,
                 ToastAndroid.TOP,
             );
