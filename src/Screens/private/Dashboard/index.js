@@ -50,15 +50,28 @@ const Dashboard = () => {
     ]);
 
     const renderTabBar = props => {
-        return (<TabBar
-            gap={40}
-            {...props}
-            scrollEnabled
-            activeColor={Colors.WHITE}
-            indicatorStyle={styles.indicatorStyle}
-            style={styles.tabContainer}
-            labelStyle={styles.tabLabel}
-        />
+        return (
+            <TabBar
+                {...props}
+                // scrollEnabled
+                indicatorStyle={styles.indicatorStyle}
+                activeColor={Colors.WHITE}
+                style={styles.tabContainer}
+                // contentContainerStyle={{ backgroundColor: 'yellow' }}
+                renderLabel={({ route }) => (
+                    <>
+                        <Text
+                            style={[
+                                styles.tabLabel,
+                                route.key === props.navigationState.routes[index].key
+                                    ? styles.selectedTabText
+                                    : styles.tabText,
+                            ]}>
+                            {route.title}
+                        </Text>
+                    </>
+                )}
+            />
         );
     };
     return (
@@ -69,8 +82,8 @@ const Dashboard = () => {
                 <TabView
                     navigationState={{ index, routes }}
                     onIndexChange={setIndex}
-                    renderTabBar={renderTabBar}
                     renderScene={renderScene}
+                    renderTabBar={renderTabBar}
                 />
             </View>
         </SafeAreaView>
