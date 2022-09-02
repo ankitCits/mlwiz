@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
 import { SafeAreaView, Text, useWindowDimensions, View } from 'react-native';
-import {
-    SceneMap, TabBar, TabView, NavigationState,
-    SceneRendererProps,
-} from 'react-native-tab-view';
+import { SceneMap, TabBar, TabView, NavigationState, SceneRendererProps, } from 'react-native-tab-view';
 import Header from '../../../Components/header';
-import { TextAvatar } from '../../../Components/text-avatar';
 import Colors from '../../../Themes/Colors';
 import { styles } from './styles';
 
