@@ -8,13 +8,14 @@ import SplashScreen from 'react-native-splash-screen';
 
 import AuthContext from '../Context/AuthContext';
 import Colors from '../Themes/Colors';
+import { ActivityIndicator, View } from 'react-native';
 const Navigation = () => {
     const authContext = useContext(AuthContext);
     const { userToken, isLoading } = authContext;
     useEffect(() => {
         setTimeout(() => {
-            SplashScreen.hide()
-        }, 100);
+            SplashScreen.hide();
+        }, 1000);
     }, [])
 
 
@@ -32,7 +33,8 @@ const Navigation = () => {
                         <ActivityIndicator size="large" color={Colors.PRIMARY} />
                     </View>
                     :
-                    userToken != null ? <PublicRoute /> : <PrivateRoute />
+                    // userToken != null ? <PublicRoute /> : <PrivateRoute />
+                    <PrivateRoute />
             }
         </NavigationContainer>
     );

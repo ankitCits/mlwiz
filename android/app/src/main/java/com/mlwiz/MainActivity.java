@@ -1,18 +1,18 @@
 package com.mlwiz;
 
-// import android.os.Bundle; // here
+import android.os.Bundle; // for splashscreen
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
 
-// import org.devio.rn.splashscreen.SplashScreen; // here
+import org.devio.rn.splashscreen.SplashScreen; // for splashscreen
 
 public class MainActivity extends ReactActivity {
-  //  @Override
-    // protected void onCreate(Bundle savedInstanceState) {
-        // SplashScreen.show(this);  // here
-        // super.onCreate(savedInstanceState);
-    // }
+   @Override
+    protected void onCreate(Bundle savedInstanceState) { // for splashscreen
+        SplashScreen.show(this);  // for splashscreen
+        super.onCreate(savedInstanceState);
+    }
 
   /**
    * Returns the name of the main component registered from JavaScript. This is used to schedule

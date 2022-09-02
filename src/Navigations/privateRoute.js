@@ -1,10 +1,11 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+
 import Dashboard from '../Screens/private/Dashboard';
-
 const Stack = createNativeStackNavigator();
-
-const stackArray = [
+const Drawer = createDrawerNavigator();
+const drawerArray = [
     {
         name: 'Dashboard',
         component: props => <Dashboard {...props} />,
@@ -14,23 +15,22 @@ const stackArray = [
 
 const PrivateRoute = props => {
     return (
-        <Stack.Navigator
+        <Drawer.Navigator
             headerMode="none"
             initialRouteName="Dashboard"
-        // screenOptions={{ animation: 'slide_from_right', headerShown: false }}
         >
-            {stackArray.map((item, index) => {
+            {drawerArray.map((item, index) => {
                 return (
-                    <Stack.Screen
+                    <Drawer.Screen
                         key={index}
                         name={item.name}
                         screenOptions={{ headerShown: false }}
                         options={{ headerShown: false }}>
                         {p => <item.component {...p} {...props} />}
-                    </Stack.Screen>
+                    </Drawer.Screen>
                 );
             })}
-        </Stack.Navigator>
+        </Drawer.Navigator>
     );
 };
 
