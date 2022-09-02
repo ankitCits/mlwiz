@@ -1,8 +1,11 @@
 import React from 'react';
 import { StatusBar } from 'react-native';
 import Navigation from './Navigations';
-import Colors from './Themes/Colors'
+import Colors from './Themes/Colors';
+import SplashScreen from 'react-native-splash-screen';
+import AuthState from './Context/AuthContext/authState';
 const index = () => {
+    SplashScreen.show();
     return (
         <>
             <StatusBar
@@ -10,7 +13,9 @@ const index = () => {
                 backgroundColor={Colors.WHITE}
                 translucent={false}
             />
-            <Navigation />
+            <AuthState>
+                <Navigation />
+            </AuthState>
         </>
     );
 };

@@ -285,7 +285,8 @@ dependencies {
         implementation jscFlavor
     }
 
-     implementation project(':react-native-splash-screen')
+    //  implementation project(':react-native-splash-screen')
+    //  implementation project(':@react-native-async-storage')
 }
 
 if (isNewArchitectureEnabled()) {
