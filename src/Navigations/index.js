@@ -34,7 +34,7 @@ const Navigation = () => {
                     </View>
                     :
                     // userToken != null ? <PublicRoute /> : <PrivateRoute />
-                    <PrivateRoute />
+                    <PublicRoute />
             }
         </NavigationContainer>
     );

@@ -1,0 +1,1 @@
+export const BASE_URL = 'https://devapi.lab.local:5000/'
