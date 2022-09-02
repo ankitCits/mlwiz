@@ -3,11 +3,13 @@ import { NavigationContainer } from '@react-navigation/native';
 import { navigationRef } from './rootNavigation';
 
 import PublicRoute from './publicRoute';
+import PrivateRoute from './privateRoute';
 
 const Navigation = () => {
     return (
         <NavigationContainer ref={navigationRef}>
-            <PublicRoute />
+            <PrivateRoute />
+            {/* <PublicRoute /> */}
         </NavigationContainer>
     );
 };
