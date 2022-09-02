@@ -20,7 +20,7 @@ const PublicRoute = props => {
     return (
         <Stack.Navigator
             headerMode="none"
-            initialRouteName="Landing"
+            initialRouteName="Login"
         // screenOptions={{ animation: 'slide_from_right', headerShown: false }}
         >
             {stackArray.map((item, index) => {

@@ -23,9 +23,7 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.SECONDARY,
         borderRadius: 5
     },
-    label: {
-        color: Colors.DARK_GREY,
-    },
+
     input: {
         color: Colors.GREY
     },

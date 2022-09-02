@@ -9,9 +9,9 @@ const Login = () => {
     const [isEye, setEye] = useState(false);
     const data = ['US', 'EU'];
     const [formValues, setFormValues] = useState({
-        email: 'abc@gmail.com',
-        password: '123456',
-        country: ''
+        email: null,
+        password: null,
+        country: 0
     })
 
     const submit = () => {
@@ -23,34 +23,30 @@ const Login = () => {
             <SafeAreaView style={styles.safeAreaContainer}>
                 <View style={styles.container}>
                     <View style={styles.logo}>
-                        <Image
-                            style={styles.img}
-                            source={IMAGES.logo}
-                        />
+                        <Image source={IMAGES.logo} />
                     </View>
-                    <View style={styles.inputContainer}>
-                        <Text style={styles.label}>Email</Text>
-                        <Input
-                            placeHolder='Email'
-                            value={formValues.email}
-                            onChangeText={text => setFormValues({ ...formValues, email: text })}
-                        />
-                    </View>
-                    <View style={styles.inputContainer}>
-                        <Text style={styles.label}>Password</Text>
-                        <Input
-                            value={formValues.email}
-                            secureTextEntry={!isEye}
-                            isSecure={true}
-                            onClickEye={() => setEye(!isEye)}
-                            isOpen={isEye}
-                            placeHolder='Password'
-                            onChangeText={text => setFormValues({ ...formValues, password: text })}
-                        />
-                    </View>
+
+                    <Input
+                        labelText={'Email'}
+                        value={formValues.email}
+                        onChangeText={text => setFormValues({ ...formValues, email: text })}
+                        placeholder={'Enter email address'}
+                    />
+                    <Input
+                        labelText={'Password'}
+                        value={formValues.password}
+                        onChangeText={text => setFormValues({ ...formValues, password: text })}
+                        placeholder={'Enter password'}
+                        secureTextEntry={!isEye}
+                        isSecure={true}
+                        onClickEye={() => setEye(!isEye)}
+                        isOpen={isEye}
+                    />
+
                     <View style={styles.radioInput}>
-                        <Radio data={data} onSelect={(value) => setFormValues({ ...formValues, country: value })} />
+                        <Radio data={data} selectedValue={formValues.country} onSelect={(value) => setFormValues({ ...formValues, country: value })} />
                     </View>
+
                     <TouchableOpacity
                         style={styles.btn}
                         onPress={() => submit()

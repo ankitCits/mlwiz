@@ -3,8 +3,8 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import Colors from '../../Themes/Colors';
 import { IMAGES } from '../../Themes/Constants';
 
-const Radio = ({ data, onSelect }) => {
-  const [checked, setChecked] = useState(0);
+const Radio = ({ data, onSelect, selectedValue }) => {
+  const [checked, setChecked] = useState(selectedValue);
   return (
     <View>
       <View style={styles.container}>
