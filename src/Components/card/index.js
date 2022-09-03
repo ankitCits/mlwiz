@@ -13,7 +13,7 @@ const Card = ({ item, index }) => {
                         <Text style={styles.textDetail}>#...{item.id}B</Text>
                     </View>
                     <View style={styles.right}>
-                        <TouchableOpacity style={styles.btnResolve} key={index}>
+                        <TouchableOpacity style={styles.btnResolve} >
                             <Text style={{ color: 'black' }}>Resolve</Text>
                         </TouchableOpacity>
                     </View>
@@ -43,13 +43,13 @@ const Card = ({ item, index }) => {
                     </View>
                 </View>
                 <View style={styles.cardFooter}>
-                    <TouchableOpacity style={[styles.cardFooterDetail, styles.alarm]}>
+                    <TouchableOpacity style={[styles.cardFooterDetail, styles.alarm]} >
                         <Text style={styles.footerText}>ALARM</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.cardFooterDetail}>
+                    <TouchableOpacity style={styles.cardFooterDetail} >
                         <Text style={styles.footerText}>US East N.Virginia</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.cardFooterDetail}>
+                    <TouchableOpacity style={styles.cardFooterDetail} >
                         <Text style={styles.footerText}>US East N.Virginia</Text>
                     </TouchableOpacity>
                 </View>

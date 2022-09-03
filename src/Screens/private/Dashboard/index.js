@@ -58,7 +58,7 @@ const Dashboard = (props) => {
                     <FlatList
                         data={dashboardData}
                         renderItem={renderItemResolved}
-                        keyExtractor={(item, index) => item.id.toString()}
+                        keyExtractor={(item, index) => index.toString()}
                         style={{ marginBottom: 130 }}
                     />
                 </SafeAreaView>
@@ -159,7 +159,7 @@ const Dashboard = (props) => {
             />
         );
     };
-    
+
     return (
         <>
             <SafeAreaView>

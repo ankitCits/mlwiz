@@ -18,19 +18,29 @@ function CustomDrawer(props) {
         { label: 'Settings', redirectTo: 'Settings', icon: 'settings' },
         { label: 'About', redirectTo: 'About', icon: 'information-circle' },
     ]
+    const getActiveRouteState = function (routes, index, name) {
+        return routes[index].name.toLowerCase().indexOf(name.toLowerCase()) >= 0;
+    };
     return (
         <DrawerContentScrollView {...props}>
             <View style={styles.menuContainer}>
                 {
                     screens.map((item, key) => {
+                        const isFocused = getActiveRouteState(
+                            props.state.routes,
+                            props.state.index,
+                            `${item.label}`
+                        )
                         return (
-                            <View style={{ flexDirection: 'row' }}>
+                            <View style={{ flexDirection: 'row', }} key={key}>
                                 <DrawerItem
-                                    key={key}
-                                    style={{ width: width }}
+                                    focused={isFocused}
+                                    style={{ width: width - 20 }}
                                     icon={({ focused, color, size }) => <Icon color={color} size={size} name={focused ? `${item.icon}` : `${item.icon}-outline`} />}
                                     label={`${item.label}`}
-                                    labelStyle={{ color: Colors.BLACK, fontWeight: '700' }}
+                                    activeBackgroundColor={Colors.WHITE}
+                                    activeTintColor={Colors.PRIMARY}
+                                    labelStyle={{ color: (isFocused) ? Colors.PRIMARY : Colors.BLACK, fontWeight: '700' }}
                                     onPress={() => props.navigation.navigate(`${item.redirectTo}`)} />
                             </View>
                         );
