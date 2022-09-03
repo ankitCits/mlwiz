@@ -6,6 +6,8 @@ const IMAGES = {
     logo: require('../assets/icons/small-full-logo.png'),
     filter:require('../assets/icons/filter.png'),
     search:require('../assets/icons/search.png'),
+    back_arrow:require('../assets/icons/back-arrow.png'),
+    person:require('../assets/icons/person.png'),
 }
 
 export { IMAGES }
