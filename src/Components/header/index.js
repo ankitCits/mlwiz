@@ -1,15 +1,18 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import Colors from '../../Themes/Colors';
 import { IMAGES } from '../../Themes/Constants';
 import { TextAvatar } from '../text-avatar';
 
-const Header = () => {
+const Header = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <TextAvatar text={'Ravi Mehta'} backgroundColor={'#FFF'} textColor={Colors.PRIMARY} size={40} type={'square'} />
+                <TouchableOpacity onPress={() => navigation.toggleDrawer()} >
+                    <TextAvatar text={'Ravi Mehta'} backgroundColor={'#FFF'} textColor={Colors.PRIMARY} size={40} type={'square'} />
+
+                </TouchableOpacity>
                 <Text style={styles.headerText}>Incidents</Text>
             </View>
             <View style={styles.iconContainer}>

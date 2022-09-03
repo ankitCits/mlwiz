@@ -5,7 +5,7 @@ import Header from '../../../Components/header';
 import Colors from '../../../Themes/Colors';
 import { styles } from './styles';
 
-const Dashboard = () => {
+const Dashboard = (props) => {
 
     const Triggered = () => {
         return (
@@ -77,7 +77,7 @@ const Dashboard = () => {
     return (
 
         <SafeAreaView>
-            <Header />
+            <Header navigation={props.navigation} />
             <View style={styles.container}>
                 <TabView
                     navigationState={{ index, routes }}
