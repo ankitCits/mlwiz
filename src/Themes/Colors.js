@@ -6,7 +6,7 @@ const Colors = {
     SIGN_IN_TEXT:'#6F7780',
     BLACK: '#000000',
     WHITE: '#FFFFFF',
-    GREY1: '#333333',
+    GREY1: '#C1C1C1',
     GREY2: '#4F4F4F',
     GREY3: '#828282',
     GREY4: '#BDBDBD',
