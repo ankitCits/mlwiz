@@ -89,7 +89,10 @@ const styles = StyleSheet.create({
     },
     btnResolve: {
         backgroundColor: '#f2fcb3',
-        width: 60,
+        width: screenWidth(20),
+        flexDirection:'row',
+        alignItems:'center',
+        justifyContent:'center',
         paddingHorizontal: 5,
         alignContent: 'center'
     },
@@ -115,7 +118,7 @@ const styles = StyleSheet.create({
     },
     cardFooterDetail: {
         padding: 5,
-        marginLeft: 18,
+        marginLeft: 7,
         flexDirection: 'row',
         alignItems: 'center',
         borderRadius: 5,
