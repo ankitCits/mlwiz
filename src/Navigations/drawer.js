@@ -11,7 +11,6 @@ import { IMAGES } from '../Themes/Constants';
 function CustomDrawer(props) {
     const width = useWindowDimensions().width * 0.7;
     const screens = [
-      //  { label: 'Profile', redirectTo: 'Dashboard', icon: 'person' },
         { label: 'Dashboard', redirectTo: 'Dashboard', icon: 'home' },
         { label: 'Incident', redirectTo: 'Explore', icon: 'search' },
         { label: 'Profile', redirectTo: 'Events', icon: 'person' },
@@ -24,16 +23,18 @@ function CustomDrawer(props) {
     };
     return (
         <DrawerContentScrollView {...props}>
-            <View style={styles.menuContainer}>
-                <View style={styles.profileContainer}>
+            <View style={styles.profileContainer}>
+                <View style={{ flexDirection: 'column' }}>
                     <View style={styles.avatar}>
                         <Icon name='person' size={40} />
                     </View>
-                    <View style={styles.profileNameContainer}>
-                        <Text style={styles.profileText}>LenreB</Text>
-                        {/* <Text>70 Events</Text> */}
-                    </View>
                 </View>
+                <View style={styles.profileNameContainer}>
+                    <Text style={styles.profileText}>LenreB</Text>
+                    {/* <Text>70 Events</Text> */}
+                </View>
+            </View>
+            <View style={styles.menuContainer}>
 
                 {
                     screens.map((item, key) => {
@@ -78,45 +79,45 @@ const styles = StyleSheet.create({
 
     menuContainer: {
         flex: 1,
-        height: screenHeight(100),
+        height: screenHeight(80),
     },
-    profileContainer:{
-        width:screenWidth(100),
-        flexDirection:'row',
-        alignSelf:'center',
-        padding:16,
+    profileContainer: {
+        flexDirection: 'row',
+        alignSelf: 'flex-start',
+        padding: 16,
     },
     avatar: {
         width: 70,
         height: 70,
         borderRadius: 50,
-        alignItems:'center',
-        justifyContent:'center',
-        padding:10,
-        margin:40,
-        backgroundColor:Colors.GREY1
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: Colors.GREY1
     },
-    profileImg:{
-         width: 40, 
-         height: 40,
-         borderRadius:20
+    profileImg: {
+        width: 40,
+        height: 40,
+        borderRadius: 20
     },
-    profileNameContainer:{
-        justifyContent:'center',
-        marginHorizontal:0,
-        marginLeft:-30,
+    profileNameContainer: {
+        flexDirection: 'column',
+        justifyContent: 'center',
+        marginLeft: 10,
     },
-    profileText:{
-        fontSize:18,
-        fontWeight:'700',
-        textAlign:"left",
-        color:Colors.PRIMARY
-
+    profileText: {
+        fontSize: 18,
+        fontWeight: '700',
+        textAlign: "left",
+        color: Colors.PRIMARY
     },
-    drawerItem:{ flexDirection: 'row' },
-    signOut:{
-        flex: 1, justifyContent: 'flex-end', marginBottom: 60 
+    drawerItem: {
+        flexDirection: 'row'
     },
-    signOutLabel:{ color: Colors.BLACK, fontWeight: '700' }
+    signOut: {
+        flex: 1, justifyContent: 'flex-end', marginBottom: 40
+    },
+    signOutLabel: {
+        color: Colors.BLACK, fontWeight: '700'
+    }
 
 });
