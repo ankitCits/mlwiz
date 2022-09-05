@@ -21,7 +21,7 @@ const EditNotification = (props) => {
                                     <Icon color={Colors.PRIMARY} size={16} name={'md-pencil'} />
                                 </TouchableOpacity>
                             </View>
-                            
+
                         </View>
                         <View style={styles.item}>
                             <Text style={styles.itemTitle}>Push (To All Devices)</Text>
@@ -30,7 +30,7 @@ const EditNotification = (props) => {
                                     <Icon color={Colors.PRIMARY} size={16} name={'md-pencil'} />
                                 </TouchableOpacity>
                             </View>
-                            
+
                         </View>
                     </TouchableOpacity>
                     <Text style={styles.subText}>Add new rule at 0 minutes</Text>
@@ -44,7 +44,7 @@ const EditNotification = (props) => {
                                 <TouchableOpacity>
                                     <Icon color={Colors.PRIMARY} size={16} name={'md-pencil'} />
                                 </TouchableOpacity>
-                                
+
                             </View>
                         </View>
                     </TouchableOpacity>
@@ -80,13 +80,13 @@ const EditNotification = (props) => {
                     </TouchableOpacity>
                     <Text style={styles.subText}>Add new rule at 0 minutes</Text>
                 </View>
-                
+
                 <View style={styles.bottomContainer}>
-                <Text>Add a new rule</Text>
+                    <Text>Add a new rule</Text>
                 </View>
-                <View style={styles.logoutContainer}>
-                            <Text style={[styles.textLight, { textDecorationStyle: 'solid' }]}>Sign Out</Text>
-                        </View>
+                {/* <View style={styles.logoutContainer}>
+                    <Text style={[styles.textLight, { textDecorationStyle: 'solid' }]}>Sign Out</Text>
+                </View> */}
             </ScrollView>
         </SafeAreaView>
     )
