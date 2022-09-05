@@ -23,7 +23,7 @@ const Profile = (props) => {
                         <Text style={styles.subText}>Account owner</Text>
                         <Text style={{ paddingTop: 10, color: 'darkblue' }}>+91 9099999999</Text>
                         <Text style={styles.subText}>India</Text>
-                        <Text style={{ paddingTop: 10, color: "red", fontSize: 12 }}>
+                        <Text style={{ paddingTop: 10, color: "red", fontSize: 12,fontWeight:'350' }}>
                             Proceed to web app and verify mobile number to received to Phone &amp; SMS notification
                         </Text>
                     </View>
@@ -64,7 +64,7 @@ const Profile = (props) => {
                             </View>
 
                             <View>
-                                <Text style={styles.textLight}>At 2 minutes</Text>
+                                <Text style={styles.textLight}>At 5 minutes</Text>
                                 <Text>Push (To All Devices)</Text>
                             </View>
                         </View>

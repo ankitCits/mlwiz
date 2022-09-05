@@ -11,8 +11,32 @@ const EditNotification = (props) => {
         <SafeAreaView>
             <Header navigation={props.navigation} title={'Edit Notifications'} showBack={true} showFilter={false} showSearch={false} />
             <ScrollView>
-                <View>
+                <View style={styles.ItemContainer}>
                     <Text style={styles.textLight}>At 0 minutes</Text>
+                    <TouchableOpacity>
+                        <View style={styles.item}>
+                            <Text style={styles.itemTitle}>Email (aiwizmobile1@gmail.com)</Text>
+                            <View style={styles.toggleContainer}>
+                                <TouchableOpacity>
+                                    <Icon color={Colors.PRIMARY} size={16} name={'md-pencil'} />
+                                </TouchableOpacity>
+                            </View>
+                            
+                        </View>
+                        <View style={styles.item}>
+                            <Text style={styles.itemTitle}>Push (To All Devices)</Text>
+                            <View style={styles.toggleContainer}>
+                                <TouchableOpacity>
+                                    <Icon color={Colors.PRIMARY} size={16} name={'md-pencil'} />
+                                </TouchableOpacity>
+                            </View>
+                            
+                        </View>
+                    </TouchableOpacity>
+                    <Text style={styles.subText}>Add new rule at 0 minutes</Text>
+                </View>
+                <View style={styles.ItemContainer}>
+                    <Text style={styles.textLight}>At 1 minutes</Text>
                     <TouchableOpacity>
                         <View style={styles.item}>
                             <Text style={styles.itemTitle}>Allow Critical Notifications</Text>
@@ -20,10 +44,49 @@ const EditNotification = (props) => {
                                 <TouchableOpacity>
                                     <Icon color={Colors.PRIMARY} size={16} name={'md-pencil'} />
                                 </TouchableOpacity>
+                                
                             </View>
                         </View>
                     </TouchableOpacity>
+                    <Text style={styles.subText}>Add new rule at 0 minutes</Text>
                 </View>
+
+                <View style={styles.ItemContainer}>
+                    <Text style={styles.textLight}>At 2 minutes</Text>
+                    <TouchableOpacity>
+                        <View style={styles.item}>
+                            <Text style={styles.itemTitle}>Call (+91 9099999999)</Text>
+                            <View style={styles.toggleContainer}>
+                                <TouchableOpacity>
+                                    <Icon color={Colors.PRIMARY} size={16} name={'md-pencil'} />
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                    </TouchableOpacity>
+                    <Text style={styles.subText}>Add new rule at 0 minutes</Text>
+                </View>
+
+                <View style={styles.ItemContainer}>
+                    <Text style={styles.textLight}>At 5 minutes</Text>
+                    <TouchableOpacity>
+                        <View style={styles.item}>
+                            <Text style={styles.itemTitle}>Push (To All Devices)</Text>
+                            <View style={styles.toggleContainer}>
+                                <TouchableOpacity>
+                                    <Icon color={Colors.PRIMARY} size={16} name={'md-pencil'} />
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                    </TouchableOpacity>
+                    <Text style={styles.subText}>Add new rule at 0 minutes</Text>
+                </View>
+                
+                <View style={styles.bottomContainer}>
+                <Text>Add a new rule</Text>
+                </View>
+                <View style={styles.logoutContainer}>
+                            <Text style={[styles.textLight, { textDecorationStyle: 'solid' }]}>Sign Out</Text>
+                        </View>
             </ScrollView>
         </SafeAreaView>
     )
