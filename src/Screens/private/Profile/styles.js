@@ -2,20 +2,18 @@ import { StyleSheet } from 'react-native';
 import Colors from '../../../Themes/Colors';
 
 const styles = StyleSheet.create({
-    container:{
+    accountContainer: {
+        paddingHorizontal: 12,
+        paddingBottom: 12,
         backgroundColor: Colors.PRIMARY,
-        height: 60,
-        flexDirection: 'row',
-        alignItems: 'center',
-        paddingHorizontal: 10
+        borderBottomLeftRadius: 10,
+        borderBottomRightRadius: 10,
     },
-    header: {
-        flexDirection: 'row',
-        alignItems: 'center'
+    titleText: {
+        fontSize: 24, color: Colors.WHITE
     },
-    subheaderTextContainer:{
-        paddingTop:2,
-        paddingLeft:25
+    subText: {
+        fontSize: 14, color: Colors.WHITE
     },
     headerText: {
         color: '#FFF',
@@ -39,49 +37,50 @@ const styles = StyleSheet.create({
         padding: 10,
         marginLeft: 10,
         zIndex: 0,
-        
+
     },
-    lastWeek:{
-        textAlign:'left',
-        fontSize:30,
-        fontWeight:500,
-        paddingTop:20,
-        paddingLeft:25,
-        
+    lastWeek: {
+        textAlign: 'left',
+        fontSize: 30,
+        fontWeight: 500,
+        paddingTop: 20,
+        paddingLeft: 25,
+
     },
-    lastWeekSubHeader:{
-        paddingLeft:5,
+    lastWeekSubHeader: {
+        paddingLeft: 5,
     },
-    Notification:{
-        textAlign:'left',
-        fontSize:30,
-        fontWeight:'500',
-        paddingTop:30,
-        paddingLeft:25,
+    Notification: {
+        textAlign: 'left',
+        fontSize: 30,
+        fontWeight: '500',
+        paddingTop: 30,
+        paddingLeft: 25,
     },
-    iconContainerNoti:{
+    iconContainerNoti: {
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'flex-end',
-        paddingLeft:50,
-        
+        paddingLeft: 50,
+
     },
     iconsubContainer: {
         backgroundColor: '#52d6e5',
         borderRadius: 50,
         padding: 10,
         zIndex: 0,
-       // backgroundColor:"red"
+        // backgroundColor:"red"
     },
-    NotificationText:{
-        fontSize:20,fontWeight:'400',flexDirection:"row"
+    NotificationText: {
+        fontSize: 20, fontWeight: '400', flexDirection: "row"
     },
-    NotificationsubText:{
-        paddingTop:15,
-        fontSize:20,
-        fontWeight:'500',
+    NotificationsubText: {
+        paddingTop: 15,
+        fontSize: 20,
+        fontWeight: '500',
         //backgroundColor:"red",
     },
+
 });
 
 export { styles };

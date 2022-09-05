@@ -5,7 +5,7 @@ import { IMAGES } from '../../Themes/Constants';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
-const Header = ({ navigation }) => {
+const Header = ({ navigation, title, showFilter = true, showSearch = true }) => {
 
     return (
         <View style={styles.container}>
@@ -13,15 +13,21 @@ const Header = ({ navigation }) => {
                 <TouchableOpacity onPress={() => navigation.toggleDrawer()} >
                     <Icon color={Colors.WHITE} size={24} name={'filter'} />
                 </TouchableOpacity>
-                <Text style={styles.headerText}>Incidents</Text>
+                <Text style={styles.headerText}>{title}</Text>
             </View>
             <View style={styles.iconContainer}>
-                <View style={styles.subContainer}>
-                    <Image source={IMAGES.filter} style={styles.icon} />
-                </View>
-                <View style={styles.subContainer}>
-                    <Image source={IMAGES.search} style={styles.icon} />
-                </View>
+                {
+                    showFilter &&
+                    <View style={styles.subContainer}>
+                        <Image source={IMAGES.filter} style={styles.icon} />
+                    </View>
+                }
+                {
+                    showSearch &&
+                    <View style={styles.subContainer}>
+                        <Image source={IMAGES.search} style={styles.icon} />
+                    </View>
+                }
             </View>
         </View>
     );
@@ -62,7 +68,8 @@ const styles = StyleSheet.create({
         padding: 8,
         marginLeft: 10,
         zIndex: 0,
-    }
+    },
+
 });
 
 export default Header;

@@ -163,7 +163,7 @@ const Incidents = (props) => {
     return (
         <>
             <SafeAreaView>
-                <Header navigation={props.navigation} />
+                <Header navigation={props.navigation} title={'Incidents'} />
                 <View style={styles.container}>
                     <TabView
                         navigationState={{ index, routes }}

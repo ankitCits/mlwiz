@@ -9,7 +9,7 @@ function CustomDrawer(props) {
     const width = useWindowDimensions().width * 0.7;
     const screens = [
         { label: 'Incidents', redirectTo: 'Incidents', icon: 'file-tray-stacked' },
-        { label: 'Profile', redirectTo: 'Events', icon: 'person' },
+        { label: 'Profile', redirectTo: 'Profile', icon: 'person' },
         { label: 'Settings ', redirectTo: 'Tasks', icon: 'settings' },
         { label: 'About', redirectTo: 'Invite', icon: 'ios-information-circle' },
         { label: 'Escalation policy', redirectTo: 'Settings', icon: 'list-circle' },
