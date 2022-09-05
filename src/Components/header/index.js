@@ -11,7 +11,6 @@ const Header = ({ navigation }) => {
         <View style={styles.container}>
             <View style={styles.header}>
                 <TouchableOpacity onPress={() => navigation.toggleDrawer()} >
-                    {/* <TextAvatar text={'Ravi Mehta'} backgroundColor={'#FFF'} textColor={Colors.PRIMARY} size={40} type={'square'} /> */}
                     <Icon color={Colors.WHITE} size={24} name={'filter'} />
                 </TouchableOpacity>
                 <Text style={styles.headerText}>Incidents</Text>

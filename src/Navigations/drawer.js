@@ -4,16 +4,15 @@ import { useWindowDimensions, View, StyleSheet, Image, Text, Dimensions } from '
 import Colors from '../Themes/Colors';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { screenHeight, screenWidth } from '../Themes/Metrices';
-import { IMAGES } from '../Themes/Constants';
 import { TextAvatar } from './../Components/text-avatar/index';
 function CustomDrawer(props) {
     const width = useWindowDimensions().width * 0.7;
     const screens = [
         { label: 'Incidents', redirectTo: 'Incidents', icon: 'file-tray-stacked' },
         { label: 'Profile', redirectTo: 'Events', icon: 'person' },
-        { label: 'Settings ', redirectTo: 'Tasks', icon: 'list-circle' },
-        { label: 'About', redirectTo: 'Invite', icon: 'mail' },
-        { label: 'Escalation policy', redirectTo: 'Settings', icon: 'settings' },
+        { label: 'Settings ', redirectTo: 'Tasks', icon: 'settings' },
+        { label: 'About', redirectTo: 'Invite', icon: 'ios-information-circle' },
+        { label: 'Escalation policy', redirectTo: 'Settings', icon: 'list-circle' },
     ]
     const getActiveRouteState = function (routes, index, name) {
         return routes[index].name.toLowerCase().indexOf(name.toLowerCase()) >= 0;
@@ -23,9 +22,6 @@ function CustomDrawer(props) {
             <View style={styles.profileContainer}>
 
                 <View style={{ flexDirection: 'column' }}>
-                    {/* <View style={styles.avatar}>
-                        <Icon name='person' size={40} />
-                    </View> */}
                     <TextAvatar text={'L B'} backgroundColor={Colors.PRIMARY} textColor={Colors.WHITE} size={70} type={'round'} />
                     <View style={styles.ring1}></View>
                     <View style={styles.ring2}></View>
@@ -78,7 +74,7 @@ export default CustomDrawer;
 const styles = StyleSheet.create({
     menuContainer: {
         flex: 1,
-        height: screenHeight(80),
+        height: screenHeight(70),
     },
     profileContainer: {
         flexDirection: 'row',
@@ -114,7 +110,9 @@ const styles = StyleSheet.create({
         flexDirection: 'row'
     },
     signOut: {
-        flex: 1, justifyContent: 'flex-end', marginBottom: 40
+        flex: 1,
+        justifyContent: 'flex-end',
+        marginLeft: 5,
     },
     signOutLabel: {
         color: Colors.BLACK, fontWeight: '700'
