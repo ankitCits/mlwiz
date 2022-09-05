@@ -64,6 +64,7 @@ const styles = StyleSheet.create({
     containerStyle: {
         alignItems: 'center',
         justifyContent: 'center',
+        zIndex: 999
     },
     textStyle: {
         letterSpacing: 1,

@@ -7,7 +7,7 @@ import Header from '../../../Components/header';
 import Colors from '../../../Themes/Colors';
 import { styles } from './styles';
 
-const Dashboard = (props) => {
+const Incidents = (props) => {
 
     const dashboardData = [
         {
@@ -177,4 +177,4 @@ const Dashboard = (props) => {
     );
 };
 
-export default Dashboard;
+export default Incidents;

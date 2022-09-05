@@ -2,7 +2,8 @@ import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import Colors from '../../Themes/Colors';
 import { IMAGES } from '../../Themes/Constants';
-import { TextAvatar } from '../text-avatar';
+
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const Header = ({ navigation }) => {
 
@@ -10,8 +11,8 @@ const Header = ({ navigation }) => {
         <View style={styles.container}>
             <View style={styles.header}>
                 <TouchableOpacity onPress={() => navigation.toggleDrawer()} >
-                    <TextAvatar text={'Ravi Mehta'} backgroundColor={'#FFF'} textColor={Colors.PRIMARY} size={40} type={'square'} />
-
+                    {/* <TextAvatar text={'Ravi Mehta'} backgroundColor={'#FFF'} textColor={Colors.PRIMARY} size={40} type={'square'} /> */}
+                    <Icon color={Colors.WHITE} size={24} name={'filter'} />
                 </TouchableOpacity>
                 <Text style={styles.headerText}>Incidents</Text>
             </View>
@@ -52,14 +53,14 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end',
     },
     icon: {
-        width: 16,
-        height: 16,
+        width: 14,
+        height: 14,
         zIndex: 1,
     },
     subContainer: {
         backgroundColor: '#52d6e5',
         borderRadius: 50,
-        padding: 10,
+        padding: 8,
         marginLeft: 10,
         zIndex: 0,
     }

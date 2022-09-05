@@ -7,8 +7,8 @@ const index = () => {
     return (
         <>
             <StatusBar
-                barStyle="dark-content"
-                backgroundColor={Colors.WHITE}
+                barStyle="light-content"
+                backgroundColor={Colors.PRIMARY}
                 translucent={false}
             />
             <AuthState>

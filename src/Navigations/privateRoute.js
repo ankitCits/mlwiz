@@ -2,7 +2,7 @@ import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
-import Dashboard from '../Screens/private/Dashboard';
+import Incidents from '../Screens/private/Incidents';
 import CustomDrawer from './drawer';
 import Explore from '../Screens/private/Explore';
 const Stack = createNativeStackNavigator();
@@ -11,8 +11,8 @@ const Drawer = createDrawerNavigator();
 
 const drawerArray = [
     {
-        name: 'Dashboard',
-        component: props => <Dashboard {...props} />,
+        name: 'Incidents',
+        component: props => <Incidents {...props} />,
     },
     {
         name: 'Explore',
@@ -26,7 +26,7 @@ const PrivateRoute = props => {
     return (
         <Drawer.Navigator
             headerMode="none"
-            initialRouteName="Dashboard"
+            initialRouteName="Incidents"
             drawerContent={(props) => <CustomDrawer {...props} />}
         >
             {drawerArray.map((item, index) => {

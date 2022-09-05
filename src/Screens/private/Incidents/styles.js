@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
         color: '#52d6e5',
     },
     tabLabel: {
-        fontSize:13
+        fontSize: 13
         // width: '100%',
         // alignSelf: 'center',
         // alignItems: 'center',
