@@ -1,17 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Text, View, TouchableOpacity, Image, SafeAreaView, ScrollView } from 'react-native';
 import { styles } from './styles';
-import Colors from '../../../Themes/Colors';
-import { IMAGES } from '../../../Themes/Constants';
-import { TextAvatar } from '../../../Components/text-avatar';
 import Header from '../../../Components/header';
+import Icon from 'react-native-vector-icons/Ionicons';
+import Colors from '../../../Themes/Colors';
+import ToggleSwitch from 'toggle-switch-react-native'
 
 const Profile = (props) => {
+    const [notification, setNotification] = useState(true);
+    const toggleNotification = () => {
+        // rest of code
+        setNotification(notification => !notification);
+    }
     return (
         <SafeAreaView>
             <Header navigation={props.navigation} title={'Profile'} showFilter={false} showSearch={false} />
-            <ScrollView>
-                <View>
+            <ScrollView  >
+                <View style={{ flex: 1 }}>
                     <View style={styles.accountContainer}>
                         <Text style={styles.titleText}>Ankit Singh</Text>
                         <Text style={styles.subText}>Test1@gmail.com</Text>
@@ -23,59 +28,69 @@ const Profile = (props) => {
                         </Text>
                     </View>
 
-                    <View style={styles.lastWeek}>
-                        <Text style={{ fontSize: 20, fontWeight: '400' }}> Last Week</Text>
-                        <View style={styles.lastWeekSubHeader}>
-                            <Text style={{ color: "green" }}>0 Acknowledge</Text>
-                            <Text style={{ color: "green" }}>0 Resolved</Text>
-                        </View>
-                    </View>
-
-                    <View style={styles.Notification}>
+                    <View style={styles.subViewContainer}>
                         <View>
-                            <Text style={styles.NotificationText}>Notification Rule</Text>
+                            <Text style={styles.titleTextSub}>Last Week</Text>
+                            <Text style={[styles.statusTextSub, { color: 'orange' }]}>0 Acknowledge</Text>
+                            <Text style={[styles.statusTextSub, { color: 'green' }]}>0 Resolved</Text>
                         </View>
+
+                        <View style={styles.notificationRules}>
+                            <View style={styles.notificationTitleContainer}>
+                                <View>
+                                    <Text style={[styles.titleTextSub]}>Notification Rule</Text>
+                                </View>
+                                <View style={styles.subContainer}>
+                                    <TouchableOpacity style={styles.editContainer}>
+                                        <Icon color={Colors.PRIMARY} size={16} name={'md-pencil'} />
+                                    </TouchableOpacity>
+                                </View>
+                            </View>
+
+                            <View >
+                                <Text style={styles.textLight}>At 0 minutes</Text>
+                                <Text>Email (Test1@gmail.com)</Text>
+                                <Text>Push  (To all Devices)</Text>
+                            </View>
+
+                            <View >
+                                <Text style={styles.textLight}>At 1 minutes</Text>
+                                <Text>Message (+91 9909999999)</Text>
+                            </View>
+
+                            <View >
+                                <Text style={styles.textLight}>At 2 minutes</Text>
+                                <Text>Call (+91 9909999999)</Text>
+                            </View>
+
+                            <View>
+                                <Text style={styles.textLight}>At 2 minutes</Text>
+                                <Text>Push (To All Devices)</Text>
+                            </View>
+                        </View>
+
                         <TouchableOpacity>
-                            <View style={styles.iconContainerNoti}>
-                                <View style={styles.iconsubContainer}>
-                                    <Image source={IMAGES.back_arrow} style={styles.icon} />
+                            <View style={styles.item}>
+                                <Text style={styles.itemTitle}>Allow Critical Notifications</Text>
+                                <View style={styles.toggleContainer}>
+                                    <ToggleSwitch
+                                        isOn={notification}
+                                        onColor={Colors.PRIMARY}
+                                        offColor={Colors.GREY}
+                                        size="small"
+                                        onToggle={() => toggleNotification()}
+                                    />
                                 </View>
                             </View>
                         </TouchableOpacity>
 
-                        <View style={styles.NotificationsubText}>
-                            <Text>At 0 minutes</Text>
-                            <Text>Email (Test1@gmail.com)</Text>
-                            <Text>Push  (To all Devices)</Text>
+                        <View style={styles.logoutContainer}>
+                            <Text style={[styles.textLight, { textDecorationStyle: 'solid' }]}>Sign Out</Text>
                         </View>
-
-                        <View style={styles.NotificationsubText}>
-                            <Text>At 1 minutes</Text>
-                            <Text>Message (+91 9909999999)</Text>
-                        </View>
-
-                        <View style={styles.NotificationsubText}>
-                            <Text>At 2 minutes</Text>
-                            <Text>Call (+91 9909999999)</Text>
-                        </View>
-
-                        <View style={styles.NotificationsubText}>
-                            <Text>At 2 minutes</Text>
-                            <Text>Push (To All Devices)</Text>
-                        </View>
-
-
-                        <View style={styles.NotificationsubText}>
-                            <Text>Allow Critical Notification</Text>
-                        </View>
-
-                    </View>
-                    <View style={{ paddingTop: 15, paddingLeft: 20 }}>
-                        <Text>Sign Out</Text>
                     </View>
                 </View>
             </ScrollView>
-        </SafeAreaView>
+        </SafeAreaView >
     );
 };
 
