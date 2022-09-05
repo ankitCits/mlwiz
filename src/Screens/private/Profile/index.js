@@ -38,10 +38,10 @@ const Profile = (props) => {
                         <View style={styles.notificationRules}>
                             <View style={styles.notificationTitleContainer}>
                                 <View>
-                                    <Text style={[styles.titleTextSub]}>Notification Rule</Text>
+                                    <Text style={[styles.titleTextSub]}>Notification Rules</Text>
                                 </View>
                                 <View style={styles.subContainer}>
-                                    <TouchableOpacity style={styles.editContainer}>
+                                    <TouchableOpacity style={styles.editContainer} onPress={() => props.navigation.navigate('EditNotification')}>
                                         <Icon color={Colors.PRIMARY} size={16} name={'md-pencil'} />
                                     </TouchableOpacity>
                                 </View>

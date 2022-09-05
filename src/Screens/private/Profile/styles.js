@@ -10,11 +10,11 @@ const styles = StyleSheet.create({
         borderBottomRightRadius: 16,
     },
     titleText: {
-        fontSize: 24,
+        fontSize: 22,
         color: Colors.WHITE
     },
     subText: {
-        fontSize: 14,
+        fontSize: 12,
         color: Colors.WHITE
     },
     subViewContainer: {
