@@ -2,25 +2,20 @@ import { StyleSheet } from 'react-native';
 import Colors from '../../../Themes/Colors';
 
 const styles = StyleSheet.create({
-    accountContainer: {
-        paddingHorizontal: 12,
-        paddingBottom: 12,
-        backgroundColor: Colors.PRIMARY,
-        borderBottomLeftRadius: 10,
-        borderBottomRightRadius: 10,
+    item: {
+        marginTop: 20,
+        flexDirection: 'row',
+        alignItems: 'center',
     },
-    titleText: {
-        fontSize: 24, color: Colors.WHITE
+    itemTitle: {
+        color: Colors.BLACK,
+        fontSize: 12
     },
-    subText: {
-        fontSize: 14, color: Colors.WHITE
-    },
-    Headertitle:{
-        fontSize:20,
-        fontWeight:500,
-        paddingLeft:10,
-        paddingTop:10,
-        color:Colors.DARK_GREY,
+    toggleContainer: {
+        flex: 1,
+        alignSelf: 'center',
+        alignItems: 'flex-end',
+        marginHorizontal: 8
     },
 });
-    export { styles };
+export { styles };

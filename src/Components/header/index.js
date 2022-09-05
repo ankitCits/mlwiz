@@ -5,16 +5,26 @@ import { IMAGES } from '../../Themes/Constants';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
-const Header = ({ navigation, title, showFilter = true, showSearch = true }) => {
+const Header = ({ navigation, showBack = false, title, showFilter = true, showSearch = true }) => {
 
     return (
         <View style={styles.container}>
+
+
             <View style={styles.header}>
-                <TouchableOpacity onPress={() => navigation.toggleDrawer()} >
-                    <Icon color={Colors.WHITE} size={24} name={'filter'} />
-                </TouchableOpacity>
+                {showBack &&
+                    <TouchableOpacity onPress={() => navigation.goBack()}>
+                        <Icon color={Colors.WHITE} size={24} name={'md-chevron-back'} />
+                    </TouchableOpacity>
+                }
+                {!showBack &&
+                    <TouchableOpacity onPress={() => navigation.toggleDrawer()} >
+                        <Icon color={Colors.WHITE} size={24} name={'filter'} />
+                    </TouchableOpacity>
+                }
                 <Text style={styles.headerText}>{title}</Text>
             </View>
+
             <View style={styles.iconContainer}>
                 {
                     showFilter &&
