@@ -21,7 +21,7 @@ const Card = ({ item, index }) => {
                 <View style={styles.cardBody}>
                     <Text style={styles.headerText}>{item.summary}</Text>
                 </View>
-                <View style={styles.cardBody}>
+                {/* <View style={styles.cardBody}>
                     <View style={styles.left}>
                         <Text style={styles.textDetail}>IOT Alert</Text>
                         <Image source={IMAGES.back_arrow} style={styles.backArrow} />
@@ -32,17 +32,17 @@ const Card = ({ item, index }) => {
                             <Text style={styles.textDetail}>IOT Alert Policy</Text>
                         </View>
                     </View>
-                </View>
-                <View style={[styles.cardBody, styles.border]}>
-                    <View style={[styles.left]}>
+                </View> */}
+                <View style={[styles.cardBody]}>
+                    {/* <View style={[styles.left]}>
                         <Image source={IMAGES.person} style={styles.person} />
-                        <Text style={styles.textDetail}>Grafana</Text>
-                    </View>
+                        <Text style={styles.textDetail}>Alert</Text>
+                    </View> */}
                     <View style={styles.right}>
                         <Text style={styles.bottom}>4 Days aa go</Text>
                     </View>
                 </View>
-                <View style={styles.cardFooter}>
+                {/* <View style={styles.cardFooter}>
                     <TouchableOpacity style={[styles.cardFooterDetail, styles.alarm]} >
                         <Text style={styles.footerText}>ALARM</Text>
                     </TouchableOpacity>
@@ -52,7 +52,7 @@ const Card = ({ item, index }) => {
                     <TouchableOpacity style={styles.cardFooterDetail} >
                         <Text style={styles.footerText}>US East N.Virginia</Text>
                     </TouchableOpacity>
-                </View>
+                </View> */}
             </View>
         </>
     );
@@ -84,8 +84,9 @@ const styles = StyleSheet.create({
     },
     headerText: {
         color: 'black',
-        fontWeight: '700',
-        fontSize: 18
+        // fontWeight: '500',
+        fontSize: 16,
+        lineHeight:25
     },
     btnResolve: {
         backgroundColor: '#f2fcb3',
@@ -130,7 +131,7 @@ const styles = StyleSheet.create({
         fontSize: 12
     },
     bottom: {
-        marginBottom: 20,
+        // marginBottom: 20,
         color: Colors.GREY1
     },
     alarm: {
