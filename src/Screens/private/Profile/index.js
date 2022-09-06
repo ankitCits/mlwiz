@@ -21,9 +21,9 @@ const Profile = (props) => {
                         <Text style={styles.titleText}>Ankit Singh</Text>
                         <Text style={styles.subText}>Test1@gmail.com</Text>
                         <Text style={styles.subText}>Account owner</Text>
-                        <Text style={{ paddingTop: 10, color: 'darkblue' }}>+91 9099999999</Text>
+                        <Text style={{ paddingTop: 10,paddingLeft:8, color: 'darkblue' }}>+91 9099999999</Text>
                         <Text style={styles.subText}>India</Text>
-                        <Text style={{ paddingTop: 10, color: "red", fontSize: 12,fontWeight:'350' }}>
+                        <Text style={{ paddingTop: 10,paddingLeft:8, color: "red", fontSize: 12,fontWeight:'350' }}>
                             Proceed to web app and verify mobile number to received to Phone &amp; SMS notification
                         </Text>
                     </View>
@@ -47,23 +47,23 @@ const Profile = (props) => {
                                 </View>
                             </View>
 
-                            <View >
+                            <View style={styles.subTextHeader}>
                                 <Text style={styles.textLight}>At 0 minutes</Text>
                                 <Text>Email (Test1@gmail.com)</Text>
                                 <Text>Push  (To all Devices)</Text>
                             </View>
 
-                            <View >
+                            <View style={styles.subTextHeader}>
                                 <Text style={styles.textLight}>At 1 minutes</Text>
                                 <Text>Message (+91 9909999999)</Text>
                             </View>
 
-                            <View >
+                            <View style={styles.subTextHeader}>
                                 <Text style={styles.textLight}>At 2 minutes</Text>
                                 <Text>Call (+91 9909999999)</Text>
                             </View>
 
-                            <View>
+                            <View style={styles.subTextHeader}>
                                 <Text style={styles.textLight}>At 5 minutes</Text>
                                 <Text>Push (To All Devices)</Text>
                             </View>

@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { color } from 'react-native-reanimated';
 import Colors from '../../../Themes/Colors';
 
 const styles = StyleSheet.create({
@@ -8,18 +9,22 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.PRIMARY,
         borderBottomLeftRadius: 16,
         borderBottomRightRadius: 16,
+        //backgroundColor:"powderblue",
     },
     titleText: {
         fontSize: 22,
-        color: Colors.WHITE
+        color: Colors.WHITE,
+        paddingLeft:8,
     },
     subText: {
         fontSize: 12,
-        color: Colors.WHITE
+        color: Colors.WHITE,
+        paddingLeft:8,
     },
     subViewContainer: {
-        paddingHorizontal: 14,
-        marginTop: 12
+        paddingHorizontal: 18,
+        marginTop: 12,
+        //paddingLeft:8,
     },
     titleTextSub: {
         color: Colors.DARK_GREY,
@@ -44,8 +49,12 @@ const styles = StyleSheet.create({
     },
     editContainer: {
         backgroundColor: '#52d6e5',
+        //backgroundColor:Colors.GREY1,
         borderRadius: 50,
         padding: 6,
+    },
+    subTextHeader:{
+        paddingTop:5,
     },
     icon: {
         width: 16,

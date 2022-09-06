@@ -39,7 +39,7 @@ const EditNotification = (props) => {
                     <Text style={styles.textLight}>At 1 minutes</Text>
                     <TouchableOpacity>
                         <View style={styles.item}>
-                            <Text style={styles.itemTitle}>Allow Critical Notifications</Text>
+                            <Text style={styles.itemTitle}>Message (+91 9099999999)</Text>
                             <View style={styles.toggleContainer}>
                                 <TouchableOpacity>
                                     <Icon color={Colors.PRIMARY} size={16} name={'md-pencil'} />
@@ -82,11 +82,13 @@ const EditNotification = (props) => {
                 </View>
 
                 <View style={styles.bottomContainer}>
-                    <Text>Add a new rule</Text>
+
                 </View>
-                {/* <View style={styles.logoutContainer}>
-                    <Text style={[styles.textLight, { textDecorationStyle: 'solid' }]}>Sign Out</Text>
-                </View> */}
+                <View>
+                <Text style={{color:Colors.BLUE}}>Add a new rule</Text>
+                </View>
+               
+
             </ScrollView>
         </SafeAreaView>
     )
