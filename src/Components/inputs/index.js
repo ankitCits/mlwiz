@@ -11,6 +11,7 @@ const Input = ({
   onClickEye,
   onChangeText,
   labelText,
+  type,
   ...rest
 }) => {
   const [textValue, setTextValue] = useState(value);
@@ -23,6 +24,7 @@ const Input = ({
             <TextInput
               style={styles.textInput}
               value={textValue}
+              keyboardType={type}
               placeholder={placeholder}
               onChangeText={text => { onChangeText(text); setTextValue(text); }}
               {...rest}
