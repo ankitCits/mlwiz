@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getAccessToken, removeAccessToken } from '../../Storage';
+import { getAccessToken, removeAccessToken, setAccessToken } from '../../Storage';
 // import { useDispatch } from 'react-redux';
 // import { setToken, setUser } from '../../redux/auth/authSlice';
 import AuthContext from './index';
@@ -17,6 +17,7 @@ const AuthState = (props) => {
     const checkAuthenticationStatus = async () => {
         try {
             const token = await getAccessToken();
+            console.log(token);
             // const user = await getUserLocal();
             // console.log(token,user);
             // dispatch(setUser({ user }));
@@ -29,11 +30,11 @@ const AuthState = (props) => {
 
     const onAuthentication = async (token) => {
         // console.log(token);
+        await setAccessToken(token);
         setUserToken(token);
     }
 
     const userSignOut = async () => {
-        console.log('userSignOut');
         await removeAccessToken();
         setUserToken(null);
     }

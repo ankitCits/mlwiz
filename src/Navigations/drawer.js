@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
 import { useWindowDimensions, View, StyleSheet, Image, Text, Dimensions } from 'react-native';
 import Colors from '../Themes/Colors';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { screenHeight, screenWidth } from '../Themes/Metrices';
 import { TextAvatar } from './../Components/text-avatar/index';
+import AuthContext from './../Context/AuthContext';
+
 function CustomDrawer(props) {
+    const { userSignOut } = useContext(AuthContext);
     const width = useWindowDimensions().width * 0.7;
     const screens = [
         { label: 'Incidents', redirectTo: 'Incidents', icon: 'file-tray-stacked' },
@@ -17,6 +20,10 @@ function CustomDrawer(props) {
     const getActiveRouteState = function (routes, index, name) {
         return routes[index].name.toLowerCase().indexOf(name.toLowerCase()) >= 0;
     };
+
+    const signOut = async () => {
+        await userSignOut();
+    }
     return (
         <DrawerContentScrollView {...props}>
             <View style={styles.profileContainer}>
@@ -61,7 +68,7 @@ function CustomDrawer(props) {
                         icon={({ focused, color, size }) => <Icon color={color} size={size} name={focused ? `exit` : `exit-outline`} />}
                         label={`Sign Out`}
                         labelStyle={styles.signOutLabel}
-                        onPress={() => console.log('Signout')} />
+                        onPress={() => signOut()} />
                 </View>
 
             </View>

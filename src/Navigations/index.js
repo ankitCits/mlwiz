@@ -31,8 +31,8 @@ const Navigation = () => {
                         <ActivityIndicator size="large" color={Colors.PRIMARY} />
                     </View>
                     :
-                    // userToken != null ? <PublicRoute /> : <PrivateRoute />
-                    <PrivateRoute />
+                    userToken == null ? <PublicRoute /> : <PrivateRoute />
+                // <PrivateRoute />
             }
         </NavigationContainer>
     );
