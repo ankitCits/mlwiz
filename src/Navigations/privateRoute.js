@@ -29,7 +29,7 @@ const PrivateRoute = props => {
     return (
         <Drawer.Navigator
             headerMode="none"
-            initialRouteName="EditNotification"
+            initialRouteName="Incidents"
             drawerContent={(props) => <CustomDrawer {...props} />}
         >
             {drawerArray.map((item, index) => {

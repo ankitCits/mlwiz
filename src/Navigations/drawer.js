@@ -9,10 +9,10 @@ function CustomDrawer(props) {
     const width = useWindowDimensions().width * 0.7;
     const screens = [
         { label: 'Incidents', redirectTo: 'Incidents', icon: 'file-tray-stacked' },
+        { label: 'Escalation policy', redirectTo: 'Settings', icon: 'list-circle' },
         { label: 'Profile', redirectTo: 'Profile', icon: 'person' },
         { label: 'Settings ', redirectTo: 'Tasks', icon: 'settings' },
         { label: 'About', redirectTo: 'Invite', icon: 'ios-information-circle' },
-        { label: 'Escalation policy', redirectTo: 'Settings', icon: 'list-circle' },
     ]
     const getActiveRouteState = function (routes, index, name) {
         return routes[index].name.toLowerCase().indexOf(name.toLowerCase()) >= 0;
@@ -22,13 +22,13 @@ function CustomDrawer(props) {
             <View style={styles.profileContainer}>
 
                 <View style={{ flexDirection: 'column' }}>
-                    <TextAvatar text={'L B'} backgroundColor={Colors.PRIMARY} textColor={Colors.WHITE} size={70} type={'round'} />
+                    <TextAvatar text={'A P'} backgroundColor={Colors.PRIMARY} textColor={Colors.WHITE} size={70} type={'round'} />
                     <View style={styles.ring1}></View>
                     <View style={styles.ring2}></View>
                     <View style={styles.ring3}></View>
                 </View>
                 <View style={styles.profileNameContainer}>
-                    <Text style={styles.profileText}>Lenre B</Text>
+                    <Text style={styles.profileText}>Ankit P</Text>
                 </View>
             </View>
             <View style={styles.menuContainer}>

@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
 
     textLight: {
         marginTop: 8,
-        color: Colors.DARK_GREY,
+        color: Colors.BLACK,
         fontSize: 13,
     },
 
