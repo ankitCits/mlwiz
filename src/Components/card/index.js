@@ -4,24 +4,29 @@ import Colors from "../../Themes/Colors";
 import { IMAGES } from '../../Themes/Constants';
 import { screenWidth } from '../../Themes/Metrices';
 
-const Card = ({ item, index }) => {
+
+const Card = ({ item, index, navigation }) => {
+
     return (
         <>
-            <View style={styles.card} key={index}>
-                <View style={styles.cardBody}>
-                    <View style={styles.left}>
-                        <Text style={styles.textDetail}>#...{item.id}B</Text>
+            <TouchableOpacity
+                onPress={() => navigation.navigate('IncidentDetails')}
+            >
+                <View style={styles.card} key={index}>
+                    <View style={styles.cardBody}>
+                        <View style={styles.left}>
+                            <Text style={styles.textDetail}>#...{item.id}B</Text>
+                        </View>
+                        <View style={styles.right}>
+                            <TouchableOpacity style={styles.btnResolve} >
+                                <Text style={{ color: 'black' }}>Resolve</Text>
+                            </TouchableOpacity>
+                        </View>
                     </View>
-                    <View style={styles.right}>
-                        <TouchableOpacity style={styles.btnResolve} >
-                            <Text style={{ color: 'black' }}>Resolve</Text>
-                        </TouchableOpacity>
+                    <View style={styles.cardBody}>
+                        <Text style={styles.headerText}>{item.summary}</Text>
                     </View>
-                </View>
-                <View style={styles.cardBody}>
-                    <Text style={styles.headerText}>{item.summary}</Text>
-                </View>
-                {/* <View style={styles.cardBody}>
+                    {/* <View style={styles.cardBody}>
                     <View style={styles.left}>
                         <Text style={styles.textDetail}>IOT Alert</Text>
                         <Image source={IMAGES.back_arrow} style={styles.backArrow} />
@@ -33,16 +38,16 @@ const Card = ({ item, index }) => {
                         </View>
                     </View>
                 </View> */}
-                <View style={[styles.cardBody]}>
-                    {/* <View style={[styles.left]}>
+                    <View style={[styles.cardBody]}>
+                        {/* <View style={[styles.left]}>
                         <Image source={IMAGES.person} style={styles.person} />
                         <Text style={styles.textDetail}>Alert</Text>
                     </View> */}
-                    <View style={styles.right}>
-                        <Text style={styles.bottom}>4 Days aa go</Text>
+                        <View style={styles.right}>
+                            <Text style={styles.bottom}>4 Days aa go</Text>
+                        </View>
                     </View>
-                </View>
-                {/* <View style={styles.cardFooter}>
+                    {/* <View style={styles.cardFooter}>
                     <TouchableOpacity style={[styles.cardFooterDetail, styles.alarm]} >
                         <Text style={styles.footerText}>ALARM</Text>
                     </TouchableOpacity>
@@ -53,7 +58,8 @@ const Card = ({ item, index }) => {
                         <Text style={styles.footerText}>US East N.Virginia</Text>
                     </TouchableOpacity>
                 </View> */}
-            </View>
+                </View>
+            </TouchableOpacity>
         </>
     );
 };
@@ -86,14 +92,14 @@ const styles = StyleSheet.create({
         color: 'black',
         // fontWeight: '500',
         fontSize: 16,
-        lineHeight:25
+        lineHeight: 25
     },
     btnResolve: {
         backgroundColor: '#f2fcb3',
         width: screenWidth(20),
-        flexDirection:'row',
-        alignItems:'center',
-        justifyContent:'center',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
         paddingHorizontal: 5,
         alignContent: 'center'
     },

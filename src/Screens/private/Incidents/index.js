@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { SafeAreaView, Text, View } from 'react-native';
+import { SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import { SceneMap, TabBar, TabView, } from 'react-native-tab-view';
 import Card from '../../../Components/card';
 import Header from '../../../Components/header';
 import Colors from '../../../Themes/Colors';
+import Loader from "../../../Components/themloader";
 import { styles } from './styles';
 
 const Incidents = (props) => {
@@ -82,9 +83,10 @@ const Incidents = (props) => {
     };
 
     const renderItemResolved = ({ item, index }) => {
+
         return (
             <>
-                <Card item={item} index={index} />
+                <Card item={item} index={index} navigation={props.navigation} />
             </>
         )
     };
@@ -125,6 +127,14 @@ const Incidents = (props) => {
         third: Resolved,
         forth: All
     });
+
+    // const renderScene=({route,jumpTo})=>{
+
+    //     if(routes.title=='first'){
+    //         return('IncidentDetail')
+    //     }
+    // }
+
     const [index, setIndex] = useState(0);
 
     const [routes] = useState([
@@ -138,11 +148,10 @@ const Incidents = (props) => {
         return (
             <TabBar
                 {...props}
-                // scrollEnabled
                 indicatorStyle={styles.indicatorStyle}
                 activeColor={Colors.WHITE}
                 style={styles.tabContainer}
-                // contentContainerStyle={{ backgroundColor: 'yellow' }}
+
                 renderLabel={({ route }) => (
                     <>
                         <Text

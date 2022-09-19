@@ -1,19 +1,28 @@
-import React, { useState } from "react";
-import { Text, View, SafeAreaView, TouchableOpacity, Modal } from 'react-native';
+import React, { useState,useEffect } from "react";
+import { Text, View, SafeAreaView, TouchableOpacity, Modal, } from 'react-native';
 import { styles } from './styles';
 import Colors from '../../../Themes/Colors';
+import Dimensions from'../../../Themes/Metrices';
 import Header from '../../../Components/header';
 import { ScrollView } from "react-native-gesture-handler";
 import Icon from 'react-native-vector-icons/Ionicons';
 import Input from '../../../Components/inputs';
+import Loader from "../../../Components/themloader";
+import { useIsFocused } from '@react-navigation/native';
 
 const EditNotification = (props) => {
+    const isFocused = useIsFocused();
 
-    const [visible, setVisible] = useState(false);
+    const [isVisible, setVisible] = useState(false);
     const [value, setValues] = useState(0);
-    const showRuleModal = () => {
-        setVisible(true);
-    }
+    // const showRuleModal = () => {
+    //     setVisible(true);
+    // }
+    useEffect(() => {
+        if (isFocused) {
+            setValues();
+        }
+      }, [isFocused]);
 
     return (
         <SafeAreaView>
@@ -25,7 +34,8 @@ const EditNotification = (props) => {
                         <View style={styles.item}>
                             <Text style={styles.itemTitle}>Email (aiwizmobile1@gmail.com)</Text>
                             <View style={styles.toggleContainer}>
-                                <TouchableOpacity>
+                                <TouchableOpacity
+                               onPress={() => { setVisible(true) }}>
                                     <Icon color={Colors.PRIMARY} size={16} name={'md-pencil'} />
                                 </TouchableOpacity>
                             </View>
@@ -34,7 +44,8 @@ const EditNotification = (props) => {
                         <View style={styles.item}>
                             <Text style={styles.itemTitle}>Push (To All Devices)</Text>
                             <View style={styles.toggleContainer}>
-                                <TouchableOpacity>
+                                <TouchableOpacity
+                               onPress={() => { setVisible(true) }} >
                                     <Icon color={Colors.PRIMARY} size={16} name={'md-pencil'} />
                                 </TouchableOpacity>
                             </View>
@@ -45,7 +56,8 @@ const EditNotification = (props) => {
                 </View>
                 <View style={styles.ItemContainer}>
                     <Text style={styles.textLight}>At 1 minutes</Text>
-                    <TouchableOpacity>
+                    <TouchableOpacity
+                    onPress={() => { setVisible(true) }}>
                         <View style={styles.item}>
                             <Text style={styles.itemTitle}>Message (+91 9099999999)</Text>
                             <View style={styles.toggleContainer}>
@@ -61,7 +73,8 @@ const EditNotification = (props) => {
 
                 <View style={styles.ItemContainer}>
                     <Text style={styles.textLight}>At 2 minutes</Text>
-                    <TouchableOpacity>
+                    <TouchableOpacity
+                    onPress={() => { setVisible(true) }}>
                         <View style={styles.item}>
                             <Text style={styles.itemTitle}>Call (+91 9099999999)</Text>
                             <View style={styles.toggleContainer}>
@@ -76,7 +89,8 @@ const EditNotification = (props) => {
 
                 <View style={styles.ItemContainer}>
                     <Text style={styles.textLight}>At 5 minutes</Text>
-                    <TouchableOpacity>
+                    <TouchableOpacity
+                    onPress={() => { setVisible(true) }}>
                         <View style={styles.item}>
                             <Text style={styles.itemTitle}>Push (To All Devices)</Text>
                             <View style={styles.toggleContainer}>
@@ -90,13 +104,14 @@ const EditNotification = (props) => {
                 </View>
 
                 <TouchableOpacity
-                    onPress={() => { showRuleModal() }}
+                    onPress={() => { setVisible(true) }}
                     style={styles.bottomContainer}>
                     <Text>Add a new rule</Text>
                 </TouchableOpacity>
-                <Modal visible={visible}
+
+                <Modal visible={isVisible}
                     transparent={true}
-                    onPress={() => setVisible(false)}
+                    //onPress={() => setVisible(true)}
                     animationType="none"
                 >
                     <View style={styles.modalContainer}>

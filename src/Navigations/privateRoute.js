@@ -3,9 +3,11 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import Incidents from '../Screens/private/Incidents';
+import IncidentDetails from '../Screens/private/IncidentDetails';
 import CustomDrawer from './drawer';
 import Profile from '../Screens/private/Profile';
 import EditNotification from '../Screens/private/EditNotification';
+import Escalation from '../Screens/private/EscalationPolicy';
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 
@@ -23,6 +25,15 @@ const drawerArray = [
         name: 'EditNotification',
         component: props => <EditNotification {...props} />,
     },
+    {
+        name: 'IncidentDetails',
+        component: props => <IncidentDetails {...props} />,
+    },
+    {
+        name: 'Escalation Policy',
+        component: props => <Escalation {...props} />,
+    },
+    
 ];
 
 const PrivateRoute = props => {
