@@ -2,7 +2,6 @@ import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import Colors from '../../Themes/Colors';
 import { IMAGES } from '../../Themes/Constants';
-
 import Icon from 'react-native-vector-icons/Ionicons';
 
 const Header = ({ navigation, showBack = false, title, showFilter = true, showSearch = true }) => {

@@ -5,7 +5,7 @@ const styles=StyleSheet.create({
     accountContainer: {
         paddingHorizontal: 12,
         paddingBottom: 12,
-        backgroundColor:"#cdeedb",
+        // backgroundColor:"#cdeedb",
         // borderBottomLeftRadius: 16,
         // borderBottomRightRadius: 16,
         //zIndex:1,

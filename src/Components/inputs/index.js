@@ -52,7 +52,7 @@ export default Input;
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    
+
   },
   inputContainer: {
     padding: 4,
@@ -61,15 +61,15 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
     backgroundColor: Colors.SECONDARY,
     borderRadius: 5,
-    borderWidth:1,
-    borderColor:Colors.BLUE
+    borderWidth: 1,
+    borderColor: Colors.BLUE
   },
   textInput: {
     color: Colors.GREY3,
     padding: 0,
     color: Colors.GREY,
-    width:screenWidth(100),
-    
+    width: screenWidth(100),
+
   },
   eyeContainer: {
     flex: 1,

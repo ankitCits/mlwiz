@@ -5,7 +5,6 @@ import { SceneMap, TabBar, TabView, } from 'react-native-tab-view';
 import Card from '../../../Components/card';
 import Header from '../../../Components/header';
 import Colors from '../../../Themes/Colors';
-import Loader from "../../../Components/themloader";
 import { styles } from './styles';
 
 const Incidents = (props) => {

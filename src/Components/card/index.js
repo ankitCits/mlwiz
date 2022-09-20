@@ -1,7 +1,6 @@
 import React from 'react';
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Colors from "../../Themes/Colors";
-import { IMAGES } from '../../Themes/Constants';
 import { screenWidth } from '../../Themes/Metrices';
 
 
