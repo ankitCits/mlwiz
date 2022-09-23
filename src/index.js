@@ -3,6 +3,9 @@ import { StatusBar } from 'react-native';
 import Navigation from './Navigations';
 import Colors from './Themes/Colors';
 import AuthState from './Context/AuthContext/authState';
+import { Provider } from 'react-redux';
+import { store } from './Store/store';
+
 const index = () => {
     return (
         <>
@@ -11,9 +14,11 @@ const index = () => {
                 backgroundColor={Colors.PRIMARY}
                 translucent={false}
             />
-            <AuthState>
-                <Navigation />
-            </AuthState>
+            <Provider store={store}>
+                <AuthState>
+                    <Navigation />
+                </AuthState>
+            </Provider>
         </>
     );
 };

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { getAccessToken, removeAccessToken, setAccessToken } from '../../Storage';
-// import { useDispatch } from 'react-redux';
-// import { setToken, setUser } from '../../redux/auth/authSlice';
+import { useDispatch } from 'react-redux';
+import { setUser } from '../../Redux/Auth/authSlice';
 import AuthContext from './index';
+import { userDetails } from '../../Api/auth';
 
 const AuthState = (props) => {
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
     const [userToken, setUserToken] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
@@ -17,11 +18,9 @@ const AuthState = (props) => {
     const checkAuthenticationStatus = async () => {
         try {
             const token = await getAccessToken();
-            console.log(token);
-            // const user = await getUserLocal();
-            // console.log(token,user);
-            // dispatch(setUser({ user }));
-            // dispatch(setToken({ token }));
+            const user = await userDetails();
+            console.log('checkAuthenticationStatus ', token, user);
+            dispatch(setUser({ user }));
             setUserToken(token);
         } catch (err) {
         }
@@ -29,8 +28,10 @@ const AuthState = (props) => {
     }
 
     const onAuthentication = async (token) => {
-        // console.log(token);
         await setAccessToken(token);
+        const user = await userDetails();
+        console.log('onAuthentication ', token, user);
+        dispatch(setUser({ user }));
         setUserToken(token);
     }
 

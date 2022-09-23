@@ -5,8 +5,11 @@ import Header from '../../../Components/header';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Colors from '../../../Themes/Colors';
 import ToggleSwitch from 'toggle-switch-react-native'
-
+import { useDispatch, useSelector } from 'react-redux';
+import { getUser } from '../../../Redux/Auth/authSlice';
 const Profile = (props) => {
+    const userDetails = useSelector(getUser);
+    const [details, setUserDetails] = useState(userDetails);
     const [notification, setNotification] = useState(true);
     const toggleNotification = () => {
         // rest of code
@@ -18,12 +21,12 @@ const Profile = (props) => {
             <ScrollView  >
                 <View style={{ flex: 1 }}>
                     <View style={styles.accountContainer}>
-                        <Text style={styles.titleText}>Ankit Singh</Text>
+                        <Text style={styles.titleText}>{details.username}</Text>
                         <Text style={styles.subText}>Test1@gmail.com</Text>
                         <Text style={styles.subText}>Account owner</Text>
-                        <Text style={{ paddingTop: 10,paddingLeft:8, color: 'darkblue' }}>+91 9099999999</Text>
+                        <Text style={{ paddingTop: 10, paddingLeft: 8, color: 'darkblue' }}>+91 9099999999</Text>
                         <Text style={styles.subText}>India</Text>
-                        <Text style={{ paddingTop: 10,paddingLeft:8, color: "red", fontSize: 12,fontWeight:'350' }}>
+                        <Text style={{ paddingTop: 10, paddingLeft: 8, color: "red", fontSize: 12, fontWeight: '350' }}>
                             Proceed to web app and verify mobile number to received to Phone &amp; SMS notification
                         </Text>
                     </View>

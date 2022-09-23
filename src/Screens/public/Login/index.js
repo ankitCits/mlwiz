@@ -67,12 +67,12 @@ const Login = () => {
         password: formValues.password,
       };
       const data = await singIn(postData);
-      console.log('Login > submit > response', data.token);
+      await onAuthentication(data.token);
+
       // set response 
       // await onAuthentication('ASDASD'); // Testing purpose
+
       setIsLoading(false);
-      await onAuthentication(data.token);
-      await userDetails()
 
     } catch (error) {
       console.log('Login > submit > Catch', error);

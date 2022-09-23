@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
 import { useWindowDimensions, View, StyleSheet, Image, Text, Dimensions } from 'react-native';
 import Colors from '../Themes/Colors';
@@ -6,9 +6,13 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { screenHeight, screenWidth } from '../Themes/Metrices';
 import { TextAvatar } from './../Components/text-avatar/index';
 import AuthContext from './../Context/AuthContext';
+import { getUser } from '../Redux/Auth/authSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 function CustomDrawer(props) {
     const { userSignOut } = useContext(AuthContext);
+    const userDetails = useSelector(getUser);
+    const [details, setUserDetails] = useState(userDetails);
     const width = useWindowDimensions().width * 0.7;
     const screens = [
         { label: 'Incidents', redirectTo: 'Incidents', icon: 'file-tray-stacked' },
@@ -29,13 +33,15 @@ function CustomDrawer(props) {
             <View style={styles.profileContainer}>
 
                 <View style={{ flexDirection: 'column' }}>
-                    <TextAvatar text={'A P'} backgroundColor={Colors.PRIMARY} textColor={Colors.WHITE} size={70} type={'round'} />
+                    <TextAvatar text={details.username} backgroundColor={Colors.PRIMARY} textColor={Colors.WHITE} size={70} type={'round'} />
                     <View style={styles.ring1}></View>
                     <View style={styles.ring2}></View>
                     <View style={styles.ring3}></View>
                 </View>
                 <View style={styles.profileNameContainer}>
-                    <Text style={styles.profileText}>Ankit P</Text>
+                    <Text style={styles.profileText}>
+                        {details.username}
+                    </Text>
                 </View>
             </View>
             <View style={styles.menuContainer}>
