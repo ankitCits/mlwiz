@@ -1,9 +1,9 @@
 import { BASE_URL } from "../Utils/constants";
 
 export const singIn = (postData) => {
-    console.log("Auth > sigIn > postData", postData);
     return new Promise(async (resolve, reject) => {
         const data = requestOption(postData);
+        console.log("Auth > sigIn > postData", postData);
         fetch(`${BASE_URL}login`, data)
             .then(result => result.json())
             .then(response => {

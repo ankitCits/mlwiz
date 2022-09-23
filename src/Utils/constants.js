@@ -1,1 +1,1 @@
-export const BASE_URL = 'https://devapi.lab.local:5000/'
+export const BASE_URL = 'http://172.20.20.33/aiwizapp/'
