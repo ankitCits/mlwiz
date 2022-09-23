@@ -8,7 +8,7 @@ import {
   ToastAndroid,
   ActivityIndicator,
 } from 'react-native';
-import { singIn } from '../../../Api/auth';
+import { singIn, userDetails } from '../../../Api/auth';
 import Input from '../../../Components/inputs';
 import Radio from '../../../Components/radio-button';
 import Colors from '../../../Themes/Colors';
@@ -70,9 +70,10 @@ const Login = () => {
       console.log('Login > submit > response', data.token);
       // set response 
       // await onAuthentication('ASDASD'); // Testing purpose
-      await onAuthentication(data.token);
-
       setIsLoading(false);
+      await onAuthentication(data.token);
+      await userDetails()
+
     } catch (error) {
       console.log('Login > submit > Catch', error);
       ToastAndroid.showWithGravity(error, ToastAndroid.LONG, ToastAndroid.TOP);
@@ -120,7 +121,7 @@ const Login = () => {
             }
           >
             {isLoading == true ?
-              (<ActivityIndicator size="small" color={Colors.PRIMARY} />)
+              (<ActivityIndicator size="small" color={Colors.WHITE} />)
               :
               (<Text style={styles.btnText}>
                 Sign In
