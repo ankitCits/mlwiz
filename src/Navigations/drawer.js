@@ -16,10 +16,10 @@ function CustomDrawer(props) {
     const width = useWindowDimensions().width * 0.7;
     const screens = [
         { label: 'Incidents', redirectTo: 'Incidents', icon: 'file-tray-stacked' },
-        { label: 'Escalation policy', redirectTo: 'Settings', icon: 'list-circle' },
+        { label: 'Escalation policy', redirectTo: 'EscalationPolicy', icon: 'list-circle' },
         { label: 'Profile', redirectTo: 'Profile', icon: 'person' },
-        { label: 'Settings ', redirectTo: 'Tasks', icon: 'settings' },
-        { label: 'About', redirectTo: 'Invite', icon: 'ios-information-circle' },
+        { label: 'Settings ', redirectTo: 'Settings', icon: 'settings' },
+        { label: 'About', redirectTo: 'About', icon: 'ios-information-circle' },
     ]
     const getActiveRouteState = function (routes, index, name) {
         return routes[index].name.toLowerCase().indexOf(name.toLowerCase()) >= 0;

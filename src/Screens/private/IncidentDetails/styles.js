@@ -28,6 +28,20 @@ const styles=StyleSheet.create({
         paddingLeft:8,
         
     },
+    headerText:{
+        paddingTop: 10, 
+        paddingLeft: 8,
+        color: Colors.GREY2,
+        fontSize: 15, 
+        fontWeight: '350' 
+    },
+    subheaderText:{
+        paddingTop: 7,
+        paddingLeft: 8,
+        fontSize: 15,
+        paddingBottom: 5, 
+        color: Colors.GREY2
+    },
     indicatorStyle:{
         borderWidth:1,
         borderColor:Colors.WHITE,
@@ -106,11 +120,12 @@ const styles=StyleSheet.create({
         //backgroundColor:"red"
     },
     bottomContainer:{
-        justifyContent:"flex-end",
+        justifyContent:"center",
+        //flexDirection:"row",
         //flexWrap:"wrap",
-        borderWidth:1,
-        padding:10,
-        margin:10,
+       // borderWidth:1,
+        //padding:10,
+        //margin:10,
     },
     NoteHeading:{
         fontSize:18,

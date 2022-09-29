@@ -7,6 +7,7 @@ import { ScrollView } from "react-native-gesture-handler";
 import Icon from 'react-native-vector-icons/Ionicons';
 import Input from '../../../Components/inputs';
 import { useIsFocused } from '@react-navigation/native';
+import { Overlay } from 'react-native-elements';
 
 const EditNotification = (props) => {
     const isFocused = useIsFocused();
@@ -26,7 +27,8 @@ const EditNotification = (props) => {
             <ScrollView>
                 <View style={styles.ItemContainer}>
                     <Text style={styles.textLight}>At 0 minutes</Text>
-                    <TouchableOpacity>
+                    <TouchableOpacity
+                    onPress={() => { setVisible(true) }}>
                         <View style={styles.item}>
                             <Text style={styles.itemTitle}>Email (aiwizmobile1@gmail.com)</Text>
                             <View style={styles.toggleContainer}>
@@ -57,7 +59,8 @@ const EditNotification = (props) => {
                         <View style={styles.item}>
                             <Text style={styles.itemTitle}>Message (+91 9099999999)</Text>
                             <View style={styles.toggleContainer}>
-                                <TouchableOpacity>
+                                <TouchableOpacity
+                                onPress={() => { setVisible(true) }}>
                                     <Icon color={Colors.PRIMARY} size={16} name={'md-pencil'} />
                                 </TouchableOpacity>
 
@@ -74,7 +77,8 @@ const EditNotification = (props) => {
                         <View style={styles.item}>
                             <Text style={styles.itemTitle}>Call (+91 9099999999)</Text>
                             <View style={styles.toggleContainer}>
-                                <TouchableOpacity>
+                                <TouchableOpacity
+                                onPress={() => { setVisible(true) }}>
                                     <Icon color={Colors.PRIMARY} size={16} name={'md-pencil'} />
                                 </TouchableOpacity>
                             </View>
@@ -90,7 +94,8 @@ const EditNotification = (props) => {
                         <View style={styles.item}>
                             <Text style={styles.itemTitle}>Push (To All Devices)</Text>
                             <View style={styles.toggleContainer}>
-                                <TouchableOpacity>
+                                <TouchableOpacity
+                                onPress={() => { setVisible(true) }}>
                                     <Icon color={Colors.PRIMARY} size={16} name={'md-pencil'} />
                                 </TouchableOpacity>
                             </View>
@@ -138,15 +143,22 @@ const EditNotification = (props) => {
                         </View>
                         <View style={styles.btnContainer}>
                             <View style={{}}>
+                            <TouchableOpacity
+                            onPress={() => setVisible(false)}>
                                 <View style={styles.trashContainer}>
                                     <Icon name={'trash'} size={16} />
                                 </View>
+                                </TouchableOpacity>
                             </View>
                             <View style={{ flex: 1 }}>
+                            <TouchableOpacity
+                             onPress={() => setVisible(false)}>
                                 <View style={styles.rightContainer}>
                                     <Icon name={'md-pencil'} size={16} />
                                 </View>
+                            </TouchableOpacity>
                             </View>
+                            
                         </View>
                     </View>
                 </Modal>

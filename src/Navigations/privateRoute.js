@@ -7,7 +7,10 @@ import IncidentDetails from '../Screens/private/IncidentDetails';
 import CustomDrawer from './drawer';
 import Profile from '../Screens/private/Profile';
 import EditNotification from '../Screens/private/EditNotification';
-import Escalation from '../Screens/private/EscalationPolicy';
+import EscalationPolicy from '../Screens/private/EscalationPolicy';
+import Settings from '../Screens/private/Settings';
+import About from '../Screens/private/About';
+
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 
@@ -30,8 +33,16 @@ const drawerArray = [
         component: props => <IncidentDetails {...props} />,
     },
     {
-        name: 'Escalation Policy',
-        component: props => <Escalation {...props} />,
+        name: 'EscalationPolicy',
+        component: props => <EscalationPolicy {...props} />,
+    },
+    {
+        name: 'Settings',
+        component: props => <Settings {...props} />,
+    },
+    {
+        name: 'About',
+        component: props => <About {...props} />,
     },
     
 ];

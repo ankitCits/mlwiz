@@ -3,6 +3,7 @@ import { SafeAreaView, Text, View } from "react-native";
 import { SceneMap, TabBar, TabView } from "react-native-tab-view";
 import Icon from 'react-native-vector-icons/Ionicons';
 import Header from "../../../Components/header";
+import Input from "../../../Components/inputs";
 import { TextAvatar } from "../../../Components/text-avatar";
 import Colors from '../../../Themes/Colors';
 import { styles } from './styles';
@@ -10,7 +11,8 @@ import { styles } from './styles';
 const IncidentDetail = (props) => {
 
     const [dynamicBackGroundColor, setDynamicBackGroundColor] = useState('#cdeedb')
-
+    const [textValue, setTextValue] = useState(value);
+    const [value, setValues] = useState(0);
     const Details = (props) => {
         return (
             <>
@@ -98,12 +100,20 @@ const IncidentDetail = (props) => {
                 </View>
 
                 <View style={styles.bottomContainer}>
-                    <View>
-                        <Text>Add Message to</Text>
-                    </View>
-                    <View style={{ flexDirection: "row-reverse" }}>
+                    <Input
+                    labelText={'Add Message to'}
+                    value={textValue}
+                   // type={''}
+                    //onChangeText={text => setValues(text)}
+                    placeholder={''}
+                    />
+                    {/* <View style={{ flexDirection: "row-reverse",alignItems:"flex-end" }}>
                         <Icon color={Colors.PRIMARY} size={30} name={'chevron-forward-circle-outline'} />
-                    </View>
+                    </View> */}
+                    {/* <View>
+                        <Text>Add Message to</Text>
+                    </View> */}
+                    
                 </View>
             </>
         );
@@ -155,11 +165,11 @@ const IncidentDetail = (props) => {
             <SafeAreaView >
                 <Header navigation={props.navigation} title={'Incident Details'} showBack={true} showFilter={false} showSearch={false} />
                 <View style={styles.container}>
-                    <View style={[styles.accountContainer, { backgroundColor: Colors.PRIMARY }]}>
-                        <Text style={{ paddingTop: 10, paddingLeft: 8, color: Colors.WHITE, fontSize: 15, fontWeight: '350' }}>
+                    <View style={[styles.accountContainer, { backgroundColor: dynamicBackGroundColor }]}>
+                        <Text style={styles.headerText}>
                             Vessel Pressure Alert-Pressure is outside the desired         Range 0 to 18
                         </Text>
-                        <Text style={{ paddingTop: 7, paddingLeft: 8, fontSize: 15, paddingBottom: 5, color: Colors.WHITE }}>
+                        <Text style={styles.subheaderText}>
                             an hour ago ( 07 september 2022 19:00 PM )
                         </Text>
                     </View>
