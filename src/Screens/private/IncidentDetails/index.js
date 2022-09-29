@@ -155,11 +155,11 @@ const IncidentDetail = (props) => {
             <SafeAreaView >
                 <Header navigation={props.navigation} title={'Incident Details'} showBack={true} showFilter={false} showSearch={false} />
                 <View style={styles.container}>
-                    <View style={[styles.accountContainer, { backgroundColor: dynamicBackGroundColor }]}>
-                        <Text style={{ paddingTop: 10, paddingLeft: 8, color: Colors.GREY2, fontSize: 15, fontWeight: '350' }}>
+                    <View style={[styles.accountContainer, { backgroundColor: Colors.PRIMARY }]}>
+                        <Text style={{ paddingTop: 10, paddingLeft: 8, color: Colors.WHITE, fontSize: 15, fontWeight: '350' }}>
                             Vessel Pressure Alert-Pressure is outside the desired         Range 0 to 18
                         </Text>
-                        <Text style={{ paddingTop: 7, paddingLeft: 8, fontSize: 15, paddingBottom: 5, color: Colors.GREY2 }}>
+                        <Text style={{ paddingTop: 7, paddingLeft: 8, fontSize: 15, paddingBottom: 5, color: Colors.WHITE }}>
                             an hour ago ( 07 september 2022 19:00 PM )
                         </Text>
                     </View>

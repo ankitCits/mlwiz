@@ -1,14 +1,28 @@
-import React, { useState } from 'react';
-import { SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { ActivityIndicator, SafeAreaView, Text, ToastAndroid, TouchableOpacity, View } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import { SceneMap, TabBar, TabView, } from 'react-native-tab-view';
+import { getIncident } from '../../../Api/incident';
 import Card from '../../../Components/card';
 import Header from '../../../Components/header';
 import Colors from '../../../Themes/Colors';
 import { styles } from './styles';
+import Acknowledge from './Tabs/acknowledge';
+import All from './Tabs/all';
+import Resolved from './Tabs/resolved';
+import Triggered from './Tabs/triggered';
 
 const Incidents = (props) => {
+    const [isLoading, setIsLoading] = useState(true);
+    const [data, setData] = useState([])
+    const [index, setIndex] = useState(0);
 
+    const [routes] = useState([
+        { key: 'first', title: 'Triggered',data: [], },
+        { key: 'second', title: 'Acknowledge',data: [], },
+        { key: 'third', title: 'Resolved',data: [], },
+        { key: 'forth', title: 'All',data: [], },
+    ]);
     const dashboardData = [
         {
             "created_at": "2022-07-03T02:07:08.252551-04:00",
@@ -51,81 +65,136 @@ const Incidents = (props) => {
         }
     ]
 
-    const Triggered = (props) => {
-        return (
-            <>
-                <SafeAreaView>
-                    <FlatList
-                        data={dashboardData}
-                        renderItem={renderItemResolved}
-                        keyExtractor={(item, index) => index.toString()}
-                        style={{ marginBottom: 130 }}
-                    />
-                </SafeAreaView>
-            </>
-        );
-    };
-
-    const Acknowledge = (props) => {
-        return (
-            <>
-                <SafeAreaView>
-                    <FlatList
-                        data={dashboardData}
-                        renderItem={renderItemResolved}
-                        keyExtractor={(item, index) => item.id.toString()}
-                        style={{ marginBottom: 130 }}
-                    />
-                </SafeAreaView>
-            </>
-        );
-    };
-
-    const renderItemResolved = ({ item, index }) => {
-
-        return (
-            <>
-                <Card item={item} index={index} navigation={props.navigation} />
-            </>
-        )
-    };
-
-    const Resolved = (props) => {
-        return (
-            <>
-                <SafeAreaView>
-                    <FlatList
-                        data={dashboardData}
-                        renderItem={renderItemResolved}
-                        keyExtractor={(item, index) => item.id.toString()}
-                        style={{ marginBottom: 130 }}
-                    />
-                </SafeAreaView>
-            </>
-        )
+    useEffect(()=>{
+        getIncidentList()
+    },[getIncidentList])
+    const getIncidentList = async() =>{
+        try {
+            const data = await getIncident();
+            console.log("DATA_IN_INCIDENT>",data[0])
+            setData(data)
+            routes[0].data = data
+            routes[1].data = data
+            routes[2].data = data
+            routes[3].data = data
+            setIsLoading(false);
+          } catch (error) {
+            console.log('Login > submit > Catch', error);
+            ToastAndroid.showWithGravity(
+              'Intern Issue!',
+              ToastAndroid.LONG,
+              ToastAndroid.TOP,
+            );
+            setIsLoading(false);
+          }
     }
 
-    const All = () => {
-        return (
-            <>
-                <SafeAreaView>
-                    <FlatList
-                        data={dashboardData}
-                        renderItem={renderItemResolved}
-                        keyExtractor={(item, index) => item.id.toString()}
-                        style={{ marginBottom: 130 }}
-                    />
-                </SafeAreaView>
-            </>
-        );
-    };
+    // const Triggered = (props) => {
+    //     return (
+    //         <>
+    //             <SafeAreaView>
+    //                 <FlatList
+    //                     data={data}
+    //                     renderItem={renderItemResolved}
+    //                     keyExtractor={(item, index) => index.toString()}
+    //                     style={{ marginBottom: 130 }}
+    //                 />
+    //             </SafeAreaView>
+    //         </>
+    //     );
+    // };
 
-    const renderScene = SceneMap({
-        first: Triggered,
-        second: Acknowledge,
-        third: Resolved,
-        forth: All
-    });
+    // const Acknowledge = (props) => {
+    //     return (
+    //         <>
+    //             <SafeAreaView>
+    //                 <FlatList
+    //                     data={data}
+    //                     renderItem={renderItemResolved}
+    //                     keyExtractor={(item, index) => item.id.toString()}
+    //                     style={{ marginBottom: 130 }}
+    //                 />
+    //             </SafeAreaView>
+    //         </>
+    //     );
+    // };
+
+    // const renderItemResolved = ({ item, index }) => {
+
+    //     return (
+    //         <>
+    //             <Card item={item} index={index} navigation={props.navigation} />
+    //         </>
+    //     )
+    // };
+
+    // const Resolved = (props) => {
+    //     return (
+    //         <>
+    //             <SafeAreaView>
+    //                 <FlatList
+    //                     data={data}
+    //                     renderItem={renderItemResolved}
+    //                     keyExtractor={(item, index) => item.id.toString()}
+    //                     style={{ marginBottom: 130 }}
+    //                 />
+    //             </SafeAreaView>
+    //         </>
+    //     )
+    // }
+
+    // const All = () => {
+    //     return (
+    //         <>
+    //             <SafeAreaView>
+    //                 <FlatList
+    //                     data={data}
+    //                     renderItem={renderItemResolved}
+    //                     keyExtractor={(item, index) => item.id.toString()}
+    //                     style={{ marginBottom: 130 }}
+    //                 />
+    //             </SafeAreaView>
+    //         </>
+    //     );
+    // };
+
+    // const renderScene = SceneMap({
+    //     first: Triggered,
+    //     second: Acknowledge,
+    //     third: Resolved,
+    //     forth: All
+    // });
+
+    const renderScene = ({route, jumpTo}) => {
+        if (route.title == 'Triggered') {
+          return (
+            <Triggered
+              data={route.data}
+              {...props}
+            />
+          );
+        } 
+        else if (route.title == 'Acknowledge') {
+          return (
+            <Acknowledge
+              data={route.data}
+            />
+          );
+        } else if (route.title == 'Resolved') {
+          return (
+            <Resolved
+              data={route.data}
+            />
+          );
+        } else if (route.title == 'All') {
+          return (
+            <All
+              data={route.data}
+            />
+          );
+        }
+      };
+    
 
     // const renderScene=({route,jumpTo})=>{
 
@@ -134,14 +203,6 @@ const Incidents = (props) => {
     //     }
     // }
 
-    const [index, setIndex] = useState(0);
-
-    const [routes] = useState([
-        { key: 'first', title: 'Triggered' },
-        { key: 'second', title: 'Acknowledge' },
-        { key: 'third', title: 'Resolved' },
-        { key: 'forth', title: 'All' },
-    ]);
 
     const renderTabBar = props => {
         return (
@@ -172,6 +233,11 @@ const Incidents = (props) => {
         <>
             <SafeAreaView>
                 <Header navigation={props.navigation} title={'Incidents'} />
+                {isLoading ?
+                <View style={styles.incidentLoader}>
+                    <ActivityIndicator size="small" color={Colors.PRIMARY} />
+                </View>
+                :
                 <View style={styles.container}>
                     <TabView
                         navigationState={{ index, routes }}
@@ -179,7 +245,7 @@ const Incidents = (props) => {
                         renderScene={renderScene}
                         renderTabBar={renderTabBar}
                     />
-                </View>
+                </View>}
             </SafeAreaView>
         </>
     );

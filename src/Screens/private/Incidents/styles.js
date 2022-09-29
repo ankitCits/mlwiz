@@ -32,6 +32,13 @@ const styles = StyleSheet.create({
         // padding: 0,
         // margin: 0,
         // backgroundColor: 'red'
+    },
+    incidentLoader:{
+        // flex:1,
+        backgroundColor:Colors.WHITE,
+        width: '100%',
+        height: '100%',
+        justifyContent:'center',
     }
 });
 

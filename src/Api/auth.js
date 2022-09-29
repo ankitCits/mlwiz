@@ -12,7 +12,7 @@ export const singIn = postData => {
         if (response.token) {
           resolve(response);
         }
-        if (response.errors) {
+        if (response.status == 400) {
           reject(response.errors.errors);
         }
       })

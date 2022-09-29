@@ -33,20 +33,20 @@ const styles=StyleSheet.create({
         borderColor:Colors.WHITE,
     },
     tabContainer: {
-        backgroundColor: "#cdeedb",
+        backgroundColor: Colors.PRIMARY,
         width: '100%',
         alignSelf: 'center',
         
     },
     selectedTabText:{
-        color:"#112041",
+        color:Colors.WHITE,
     },
     tabText:{
         color:Colors.GREY2,
     },
     indicatorStyle: {
         borderWidth: 1,
-        borderColor: "#112041"
+        borderColor: Colors.WHITE
     },
     headingContainer:{
         // /flex: 1,

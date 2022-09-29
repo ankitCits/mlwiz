@@ -14,7 +14,7 @@ const Card = ({ item, index, navigation }) => {
                 <View style={styles.card} key={index}>
                     <View style={styles.cardBody}>
                         <View style={styles.left}>
-                            <Text style={styles.textDetail}>#...{item.id}B</Text>
+                            <Text style={styles.textDetail}>#{item.id}</Text>
                         </View>
                         <View style={styles.right}>
                             <TouchableOpacity style={styles.btnResolve} >
@@ -65,11 +65,12 @@ const Card = ({ item, index, navigation }) => {
 
 const styles = StyleSheet.create({
     card: {
-        backgroundColor: 'white',
+        backgroundColor: '#fff',
         marginHorizontal: 10,
         borderRadius: 5,
         margin: 15,
-        marginBottom: 8,
+        marginBottom: 0,
+        // elevation:1,
     },
     cardBody: {
         margin: 10,

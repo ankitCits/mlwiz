@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, {useState, useContext} from 'react';
 import {
   SafeAreaView,
   Text,
@@ -8,17 +8,17 @@ import {
   ToastAndroid,
   ActivityIndicator,
 } from 'react-native';
-import { singIn, userDetails } from '../../../Api/auth';
+import {singIn, userDetails} from '../../../Api/auth';
 import Input from '../../../Components/inputs';
 import Radio from '../../../Components/radio-button';
 import Colors from '../../../Themes/Colors';
-import { IMAGES } from '../../../Themes/Constants';
-import { styles } from './styles';
+import {IMAGES} from '../../../Themes/Constants';
+import {styles} from './styles';
 //import { isValidEmail } from '../../../Utils';
 import AuthContext from '../../../Context/AuthContext';
 
 const Login = () => {
-  const { onAuthentication } = useContext(AuthContext);
+  const {onAuthentication} = useContext(AuthContext);
   const [isEye, setEye] = useState(false);
   // const data = ['US', 'EU'];
   const [isLoading, setIsLoading] = useState(false);
@@ -34,7 +34,7 @@ const Login = () => {
     setIsLoading(true);
     if (formValues.email.trim() == '') {
       ToastAndroid.showWithGravity(
-        'Email address mandatory',
+        'Username address mandatory',
         ToastAndroid.LONG,
         ToastAndroid.TOP,
       );
@@ -69,14 +69,17 @@ const Login = () => {
       const data = await singIn(postData);
       await onAuthentication(data.token);
 
-      // set response 
+      // set response
       // await onAuthentication('ASDASD'); // Testing purpose
 
       setIsLoading(false);
-
     } catch (error) {
       console.log('Login > submit > Catch', error);
-      ToastAndroid.showWithGravity(error, ToastAndroid.LONG, ToastAndroid.TOP);
+      ToastAndroid.showWithGravity(
+        'Please check Detail Again!',
+        ToastAndroid.LONG,
+        ToastAndroid.TOP,
+      );
       setIsLoading(false);
     }
   };
@@ -90,16 +93,16 @@ const Login = () => {
           </View>
 
           <Input
-            labelText={'Email'}
+            labelText={'Username'}
             value={formValues.email}
-            onChangeText={text => setFormValues({ ...formValues, email: text })}
-            placeholder={'Enter email address'}
+            onChangeText={text => setFormValues({...formValues, email: text})}
+            placeholder={'Enter Username address'}
           />
           <Input
             labelText={'Password'}
             value={formValues.password}
             onChangeText={text =>
-              setFormValues({ ...formValues, password: text })
+              setFormValues({...formValues, password: text})
             }
             placeholder={'Enter password'}
             secureTextEntry={!isEye}
@@ -115,18 +118,12 @@ const Login = () => {
             />
           </View> */}
 
-          <TouchableOpacity
-            style={styles.btn}
-            onPress={() => submit()
-            }
-          >
-            {isLoading == true ?
-              (<ActivityIndicator size="small" color={Colors.WHITE} />)
-              :
-              (<Text style={styles.btnText}>
-                Sign In
-              </Text>)
-            }
+          <TouchableOpacity style={styles.btn} onPress={() => submit()}>
+            {isLoading == true ? (
+              <ActivityIndicator size="small" color={Colors.WHITE} />
+            ) : (
+              <Text style={styles.btnText}>Sign In</Text>
+            )}
           </TouchableOpacity>
         </View>
       </SafeAreaView>
